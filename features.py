@@ -24,7 +24,9 @@ log = [("start (clean games)", len(g))]
 def keep(mask, name):
     global g
     g = g[mask].copy(); log.append((name, len(g)))
-keep(g["game_date"].dt.year >= 2019, "drop games dated before 2019 (date artefacts)")
+g["year"] = pd.to_numeric(g["period"].astype(str).str[:4], errors="coerce")   # period = game month, falls back to the file's month
+log.append((f"  (games with no game date, dated by source month: {int(g['game_date'].isna().sum())})", len(g)))
+keep(g["year"] >= 2019, "drop games dated before 2019 (date artefacts)")
 keep(g["analysis_ok"], "both Elos known")
 keep(g["tc_class"] != "unknown", "time control known")
 g = g.reset_index(drop=True)

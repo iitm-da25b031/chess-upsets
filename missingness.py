@@ -14,9 +14,9 @@ out = []
 def P(*a): out.append(" ".join(str(x) for x in a))
 
 g = pd.read_parquet(os.path.join(D, "clean_games.parquet"))
-g = g[g["game_date"].dt.year >= 2019].reset_index(drop=True)
+g["year"] = pd.to_numeric(g["period"].astype(str).str[:4], errors="coerce")   # game month, falls back to the file month
+g = g[g["year"] >= 2019].reset_index(drop=True)
 g["missing"] = ~g["analysis_ok"]
-g["year"] = g["game_date"].dt.year
 g["is_draw"] = (g["score_white"] == 0.5).astype(float)
 P(f"games: {len(g)}   missing at least one Elo: {int(g.missing.sum())} ({g.missing.mean():.1%})")
 
