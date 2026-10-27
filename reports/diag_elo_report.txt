@@ -1,0 +1,53 @@
+== white: Elo missing but FIDE id present: 49186 games
+   id never appears in any FIDE list (unrated / below floor / invalid id): 13322
+   id known, but game date outside the downloaded FIDE months: 0
+   id known, date in range, but no rating in that month's lists: 20486
+   a rating exists that month but not in the list matching the time control: 15378 | of these time control unknown: 324
+   PGN Elo and FIDE Elo both present: 718809; differ by >100: 10384 (1.4%)
+   difference percentiles (p50, p90, p99): [0.0, 1.0, 123.0]
+   of the big differences, PGN Elo matches ANOTHER list within 25 points (list confusion): 9033 | matches none (genuine difference or stale rating): 1351
+   big differences by time-control class: {'rapid': 5772, 'blitz': 3890, 'classical': 722}
+== black: Elo missing but FIDE id present: 49905 games
+   id never appears in any FIDE list (unrated / below floor / invalid id): 13540
+   id known, but game date outside the downloaded FIDE months: 0
+   id known, date in range, but no rating in that month's lists: 20796
+   a rating exists that month but not in the list matching the time control: 15569 | of these time control unknown: 330
+   PGN Elo and FIDE Elo both present: 718146; differ by >100: 10421 (1.5%)
+   difference percentiles (p50, p90, p99): [0.0, 1.0, 123.0]
+   of the big differences, PGN Elo matches ANOTHER list within 25 points (list confusion): 9077 | matches none (genuine difference or stale rating): 1344
+   big differences by time-control class: {'rapid': 5722, 'blitz': 3973, 'classical': 726}
+
+== both players without any Elo: 145366 games (13.0% of clean games)
+share of games missing at least one Elo, by year:
+game_date
+2010.0    1.000
+2019.0    0.000
+2020.0    0.160
+2021.0    0.352
+2022.0    0.372
+2023.0    0.414
+2024.0    0.168
+2025.0    0.145
+2026.0    0.140
+
+share of games missing at least one Elo, by time-control class:
+tc_class
+blitz        0.195
+classical    0.192
+rapid        0.274
+unknown      0.214
+
+top 12 broadcasts by games missing an Elo:
+broadcast_name
+World Youth Olympiad                                        1116
+Queens Festival                                             1102
+Italian Youth Chess Championship 2023                        987
+FIDE Online Cadets & Youth Rapid World Cup | Open U12        972
+4th FIDE World Championship for People with Disabilities     943
+FIDE Online Cadets & Youth Rapid World Cup | Open U10        942
+FIDE Online Cadets & Youth Rapid World Cup | Open U14        918
+FIDE Online Cadets & Youth Rapid World Cup | Open U16        794
+FIDE Online Cadets & Youth Rapid World Cup | Girls U10       746
+Asian Amateur Championship 2021                              741
+FIDE Online Cadets & Youth Rapid World Cup | Girls U14       739
+French Club Championship  |  Top 16                          701

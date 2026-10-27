@@ -1,0 +1,187 @@
+file: data/interim/all_games.parquet   games: 1249480
+
+== Result
+result
+1-0        473136
+0-1        393514
+1/2-1/2    294195
+*           88495
+½-½            72
+0-0            16
+--+             9
++--             6
+–/+             5
++/–             4
+-/-             3
+NaN             3
+½ - ½           3
+-+              3
+0.5-0.5         2
+1/2             2
+1:0             2
+0:1             2
+0f-0f           2
+*-*             1
+1 - 0           1
+1/2_1/2         1
+0_1             1
+1/2 1/2         1
+2/2-1/2         1
+
+== Variant
+variant
+Standard            1237823
+Chess960               5577
+From Position          4407
+Fischerandom           1147
+fischerandom            425
+Crazyhouse               59
+King of the Hill         25
+Antichess                14
+NaN                       3
+
+== Termination
+termination
+NaN                              1200230
+normal                             19775
+Normal                              7508
+Unplayed                            6378
+adjudication - TCEC draw rule       3260
+White mates                         2999
+time forfeit                        2889
+resigned                            1170
+Time forfeit                        1058
+adjudication                         714
+3-Fold repetition                    692
+unterminated                         538
+adjudication - SyzygyTB              511
+Black mates                          419
+repetition                           286
+
+== Zero-move games    87329    7.0%
+   of which result '*': 68348   decisive/draw result with no moves (forfeits?): 18935
+games with a starting FEN (non-standard start):     9830    0.8%
+ECO '?':    99810    8.0%
+event names that look like a pairing ('Round N: A - B'):   566828   45.4%
+
+== Duplicates
+duplicated game_url: 4
+duplicated (white id, black id, round, broadcast): 1021
+
+== Ratings and IDs
+Elo missing for white:   209717   16.8% | black:   211130   16.9% | either:   251959   20.2% | both:   168888   13.5%
+FIDE id missing for white:   388652   31.1% | black:   389614   31.2%
+Elo missing BUT FIDE id present (recoverable from FIDE list), white:    47635    3.8%
+Elo missing AND FIDE id missing (needs name matching), white:   162082   13.0%
+white_elo: min 0  p1 0  median 2051  p99 2857  max 5324491  zeros 18217  below 1000: 20523
+black_elo: min 0  p1 0  median 2048  p99 2857  max 5327130  zeros 18958  below 1000: 21259
+rating gap |W-B|: median 164.0  p90 409.0  p99 1625.0  max 5325262.0
+
+== Time control
+missing:   691101   55.3%
+tc_method
+missing              691101
+numeric_min          346758
+text                 134730
+numeric_sec           37635
+text_loose            32304
+numeric_ambiguous      4808
+unparsed               2144
+class counts:
+tc_class
+NaN          693245
+classical    321010
+rapid        139776
+blitz         95449
+
+strings that could NOT be parsed (top 25):
+time_control
+5400/40+30:1800+30\"                                                        872
+5400/40+30:1800                                                             444
+5400/40+30:1800+30                                                          296
+5400+30+1800                                                                212
+1500                                                                        134
+klassich                                                                     60
+5400:30                                                                      45
+3600                                                                         27
+Round 1 G/4;+2 - 4 pts | Round 2 G/3;+2 - 6 pts | Round 3 G/2;+2 - 6 pts     25
+900 + 5 sec                                                                  13
+6000:40+30;3000+30                                                            7
+5400:40+30;1800+30                                                            7
+10800                                                                         2
+
+ambiguous numeric strings (121..299 base):
+time_control
+180+2     4357
+180+1      275
+130+30      90
+200+30      40
+180+0       27
+240+0       14
+240+2        5
+
+== Clocks and engine evals
+games with %clk:  1120134   89.6% | with %eval:   967731   77.5%
+parsed TC agrees with white's first clock (+-120 s): 84.8% of 510383 games
+strings that DISAGREE most often:
+time_control
+90+30                                                                                                                         25097
+600                                                                                                                            8413
+40/5400+30:1800+30                                                                                                             3584
+60+30                                                                                                                          2040
+40/5400+30:1800+30\"                                                                                                           1742
+15+10                                                                                                                          1684
+40/5400+30:1800                                                                                                                1573
+90/40 + 30 min with 30 sec increment                                                                                           1129
+40/5400+30:1800_30\"                                                                                                            990
+1:30:30                                                                                                                         988
+G/90; +30                                                                                                                       939
+40/90 + 30 + 30s/move                                                                                                           898
+40 moves in90 + Game/30 + 30’ seconds added per move                                                                            766
+15 minutes + 5 seconds per move from move one (Round 1 - 4) / 90 minutes + 30 seconds per move from move one (Round 5 - 8)      743
+40 in 100 f.b. 50 mins with 30 secs per move                                                                                    649
+
+missing-TC games that still have clocks: 605615 of 691101
+white's first clock rounded to 10 s, top 15 (hints at the hidden time control):
+first_clk_w
+5460    216684
+5450     72694
+180      42562
+920      26635
+5440     21585
+5430     17873
+910      13747
+600      12023
+5400      9179
+5420      8830
+610       8682
+300       5854
+3660      5718
+5410      4758
+6060      4724
+
+== Missing time control: where is it concentrated? (top broadcasts)
+broadcast_name
+European Blitz Championship 2022                                   2141
+FIDE Open České Budějovice 2022                                    1452
+44th Chess Olympiad 2022 | Women | Boards 129-256                  1408
+44th Chess Olympiad 2022 | Open | Boards 169-296                   1408
+44th Chess Olympiad 2022 | Open | Boards 41-168                    1408
+44th Chess Olympiad 2022 | Women | Boards 1-128                    1407
+World Rapid Team Championship 2023                                 1296
+FIDE World Blitz Championship 2021 (Lower Boards)                  1252
+FIDE World Rapid Championship 2021                                 1149
+24th Open Bavarian Championship                                    1148
+40th Benasque Open                                                 1142
+Deutsche Vereinsmeisterschaften 2020                               1119
+Queens Festival                                                    1118
+46th FIDE Chess Olympiad Samarkand 2026 | Women | Matches 51-75    1100
+46th FIDE Chess Olympiad Samarkand 2026 | Women | Matches 1-25     1100
+
+== Engine-flagged errors per game (mean)
+n_inacc_w      1.97
+n_mistake_w    0.73
+n_blunder_w    0.87
+n_inacc_b      2.04
+n_mistake_b    0.75
+n_blunder_b    0.88

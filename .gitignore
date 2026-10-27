@@ -1,0 +1,9 @@
+.venv/
+data/
+__pycache__/
+*.pyc
+sample_head.txt
+fide_head.txt
+.vscode/
+*.zip
+/python

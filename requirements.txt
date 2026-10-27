@@ -1,0 +1,10 @@
+   requests
+   zstandard
+   pandas
+   numpy
+   pyarrow
+   scikit-learn
+   plotly
+   dash
+   dash-bootstrap-components
+   python-chess
