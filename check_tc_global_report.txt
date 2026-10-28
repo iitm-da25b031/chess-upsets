@@ -1,0 +1,45 @@
+games 858742
+
+== how the time control was decided
+tc_source
+string_verified_by_clock       365587
+clock_snapped                  265382
+clock_raw                      171463
+clock_override                  46306
+string_unverified(no clock)      8146
+event_name                       1858
+
+== clock_raw games (no usable time-control text, no snap to a known pair): estimated increment in seconds
+count    171463.0
+mean         38.0
+std          58.5
+min           0.0
+50%          26.0
+90%          53.0
+99%         387.0
+max         600.0
+
+clock_raw games with estimated increment > 60 s: 10617 (1.24% of all games)
+their assigned class:
+tc_class
+classical    10617
+
+tournaments with the most such games:
+broadcast_name
+FIDE World Cup Cadets 2025 | Open under 10                         130
+Türkiye İş Bankası 100th Anniversary Super League                  100
+Kragerø Resort Chess 2023                                           98
+Norwegian Youth Championship 2024                                   91
+Norwegian Team League Eliteserien 2023/24                           82
+Norwegian Team League 24/25                                         77
+2nd FIDE Chess Olympiad for People with Disabilities 2025           72
+31st Abu Dhabi International Chess Festival | Masters               69
+NM for barn og ungdom 2025                                          60
+India National Team Chess Championship 2026 | 45th Open             60
+Norwegian Team League                                               55
+53rd Greek Team Championship 2026                                   55
+FIDE World Senior Championship 2025 | Open 65+                      55
+XIX American Continental Chess Championship 2026 | Standard         54
+47º Festival Scacchistico Internazionale Open Citta di Arco | A     53
+
+alpha=0.10 upsets with an implausible estimate: 177 of 11038
