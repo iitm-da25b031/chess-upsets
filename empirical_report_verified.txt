@@ -1,0 +1,150 @@
+VERIFIED RUN: keeping only games where BOTH ratings are confirmed by the FIDE list (within 100 points): 655140 of 857392 games
+tournaments (clusters): 8245; games in training half: 327900, in held-out half: 327240
+== held-out calibration (tournaments not used for fitting): observed vs predicted, underdog win and not-lose
+ tc_class underdog_color  gap100     n  obs_win  pred_win  obs_notlose  pred_notlose
+    blitz          black       0  4852   0.3151    0.3267       0.5056        0.5277
+    blitz          black     100  5774   0.2541    0.2546       0.4122        0.4125
+    blitz          black     200  4145   0.1771    0.1939       0.2859        0.3092
+    blitz          black     300  2178   0.1322    0.1395       0.2163        0.2252
+    blitz          black     400  1128   0.0691    0.0994       0.1250        0.1625
+    blitz          black     500   534   0.0543    0.0713       0.0824        0.1183
+    blitz          black     600   245   0.0122    0.0531       0.0327        0.0881
+    blitz          black     700   165   0.0182    0.0388       0.0303        0.0577
+    blitz          white       0  4881   0.3641    0.3624       0.5792        0.5733
+    blitz          white     100  5791   0.3034    0.2917       0.4714        0.4638
+    blitz          white     200  4098   0.2118    0.2202       0.3504        0.3560
+    blitz          white     300  2132   0.1379    0.1542       0.2402        0.2655
+    blitz          white     400  1055   0.0900    0.1042       0.1659        0.1913
+    blitz          white     500   550   0.0582    0.0687       0.0964        0.1340
+    blitz          white     600   218   0.0413    0.0473       0.0734        0.0911
+    blitz          white     700   163   0.0245    0.0311       0.0245        0.0508
+classical          black       0 38171   0.2114    0.2071       0.5936        0.5940
+classical          black     100 40782   0.1490    0.1496       0.4542        0.4495
+classical          black     200 23209   0.0981    0.0986       0.3146        0.3175
+classical          black     300 10340   0.0634    0.0608       0.2159        0.2094
+classical          black     400  4391   0.0353    0.0366       0.1376        0.1320
+classical          black     500  1760   0.0222    0.0220       0.0801        0.0780
+classical          black     600   613   0.0131    0.0143       0.0424        0.0435
+classical          black     700   309   0.0162    0.0093       0.0453        0.0191
+classical          white       0 37952   0.2714    0.2747       0.6862        0.6880
+classical          white     100 40525   0.2002    0.2023       0.5519        0.5533
+classical          white     200 22226   0.1388    0.1365       0.4138        0.4096
+classical          white     300 10077   0.0884    0.0852       0.2884        0.2786
+classical          white     400  4036   0.0548    0.0516       0.1856        0.1773
+classical          white     500  1686   0.0362    0.0320       0.1287        0.1072
+classical          white     600   581   0.0241    0.0208       0.0929        0.0641
+classical          white     700   274   0.0073    0.0140       0.0511        0.0308
+    rapid          black       0  6244   0.2775    0.2780       0.5487        0.5437
+    rapid          black     100  8217   0.2025    0.2098       0.4165        0.4118
+    rapid          black     200  5975   0.1416    0.1477       0.2986        0.2960
+    rapid          black     300  3168   0.0900    0.0918       0.2039        0.2031
+    rapid          black     400  1552   0.0586    0.0528       0.1276        0.1398
+    rapid          black     500   690   0.0377    0.0285       0.0986        0.0960
+    rapid          black     600   352   0.0142    0.0145       0.0483        0.0675
+    rapid          black     700   232   0.0302    0.0060       0.0690        0.0446
+    rapid          white       0  6288   0.3289    0.3453       0.6185        0.6239
+    rapid          white     100  8037   0.2593    0.2564       0.4974        0.4957
+    rapid          white     200  5815   0.1844    0.1846       0.3644        0.3763
+    rapid          white     300  3039   0.1204    0.1255       0.2573        0.2718
+    rapid          white     400  1538   0.0715    0.0832       0.1664        0.1895
+    rapid          white     500   718   0.0418    0.0539       0.0975        0.1276
+    rapid          white     600   335   0.0388    0.0345       0.0925        0.0795
+    rapid          white     700   199   0.0050    0.0201       0.0201        0.0384
+
+weighted mean |observed - predicted|: win 0.0037   not-lose 0.0050
+
+== critical gap: smallest rating gap where P(underdog wins) < alpha  (95% interval); band = strength level of the players
+
+  alpha = 0.1
+underdog_colour              black          white
+tc_class  band                                   
+blitz     2200-2499  385 (360-410)  420 (405-440)
+          2500+      360 (335-390)  405 (390-430)
+          <2200      405 (385-435)  435 (420-455)
+classical 2200-2499  180 (175-185)  270 (265-275)
+          2500+      125 (120-135)  230 (225-240)
+          <2200      230 (225-235)  305 (300-310)
+rapid     2200-2499  295 (280-310)  365 (350-385)
+          2500+      270 (255-290)  350 (335-370)
+          <2200      315 (305-330)  385 (365-405)
+
+  alpha = 0.05
+underdog_colour              black          white
+tc_class  band                                   
+blitz     2200-2499  555 (515-605)  580 (545-650)
+          2500+      525 (490-575)  565 (530-625)
+          <2200      580 (540-645)  600 (560-670)
+classical 2200-2499  320 (315-325)  410 (400-420)
+          2500+      270 (265-280)  375 (365-380)
+          <2200      365 (360-375)  445 (435-455)
+rapid     2200-2499  435 (415-460)  510 (480-555)
+          2500+      410 (390-435)  495 (470-530)
+          <2200      455 (435-480)  530 (495-575)
+
+  alpha = 0.01
+underdog_colour              black          white
+tc_class  band                                   
+blitz     2200-2499  nan (825-896)  nan (770-900)
+          2500+      nan (810-899)  nan (771-900)
+          <2200      nan (843-900)  nan (776-900)
+classical 2200-2499  670 (615-750)  865 (710-870)
+          2500+      600 (565-658)  755 (675-835)
+          <2200      770 (660-812)  nan (743-895)
+rapid     2200-2499  790 (670-870)  nan (748-895)
+          2500+      755 (655-855)  nan (740-895)
+          <2200      830 (685-880)  nan (757-900)
+
+== does it change with time control? difference in critical gap (band 2200-2499, alpha=0.10); interval from the same draws
+   white underdog: classical minus rapid: -100  (95% -120 to -80)
+   white underdog: classical minus blitz: -155  (95% -175 to -135)
+   white underdog: rapid minus blitz: -55  (95% -80 to -30)
+   black underdog: classical minus rapid: -115  (95% -130 to -100)
+   black underdog: classical minus blitz: -205  (95% -230 to -180)
+   black underdog: rapid minus blitz: -90  (95% -115 to -60)
+   (nan in the tables above = the curve does not fall below alpha within a 900-point gap; there is too little data beyond that)
+   an interval that excludes 0 means the critical gap really differs between the two time controls.
+
+== critical gap on decisive games: smallest gap where the underdog wins less than alpha of the games that are NOT drawn
+   (removes the effect of different draw rates; band 2200-2499, avg Elo 2350; interval from independent draws of the two fits)
+underdog_colour          black          white
+alpha tc_class                               
+0.05  blitz      565 (530-620)  595 (560-665)
+      classical  355 (350-365)  445 (440-460)
+      rapid      455 (435-480)  535 (505-575)
+0.10  blitz      405 (385-430)  445 (430-465)
+      classical  245 (240-250)  335 (330-340)
+      rapid      330 (320-345)  405 (390-425)
+0.20  blitz      250 (235-260)  295 (285-305)
+      classical  130 (130-135)  220 (215-225)
+      rapid      200 (190-205)  275 (265-285)
+
+== no-model cross-check: isotonic (monotone) curve of the observed win rate, all strength levels pooled (nan = never falls below alpha in the data)
+underdog_colour  black  white
+alpha tc_class               
+0.05  blitz      620.0  570.0
+      classical  390.0  470.0
+      rapid      455.0  565.0
+0.10  blitz      390.0  450.0
+      classical  240.0  315.0
+      rapid      325.0  415.0
+0.20  blitz      225.0  295.0
+      classical   70.0  155.0
+      rapid      180.0  235.0
+
+== games with gap >= 700: how often do underdogs still win / not lose?  (tiny n means treat with care)
+                            n     win  not_lose
+tc_class  underdog_color                       
+blitz     black           349  0.0315    0.0487
+          white           331  0.0393    0.0665
+classical black           583  0.0103    0.0292
+          white           550  0.0091    0.0436
+rapid     black           503  0.0179    0.0557
+          white           429  0.0117    0.0280
+
+== upsets under the final (empirical) definition
+alpha=0.20: classical 42642 (8.82%), rapid 6915 (7.11%), blitz 3747 (5.04%)   | by underdog result: wins 48455, draws 4849
+alpha=0.10: classical 7206 (1.49%), rapid 1166 (1.20%), blitz 506 (0.68%)   | by underdog result: wins 8258, draws 620
+alpha=0.05: classical 983 (0.20%), rapid 178 (0.18%), blitz 72 (0.10%)   | by underdog result: wins 1169, draws 64
+alpha=0.01: classical 0 (0.00%), rapid 1 (0.00%), blitz 0 (0.00%)   | by underdog result: wins 1, draws 0
+
+monotonicity check (P(win) should fall as the gap grows): share of fitted curves with a rise before gap 900 = 17%

@@ -1,5 +1,6 @@
 """Stage 5: model-free upset curves, critical gaps with confidence intervals, and the final upset flags.
 Run after features.py:   python empirical_upsets.py            (main analysis)
+                         python empirical_upsets.py verified    (only games whose two ratings are both confirmed by the FIDE list)
                          python empirical_upsets.py sens        (sensitivity: drops games whose PGN Elo disagrees with FIDE
                                                                  by >100 and games whose time control is near a class boundary)
 WHY: the fitted Davidson model gets the underdog's SCORE right but not its win/draw split at big gaps (it gives too few
@@ -22,8 +23,9 @@ import numpy as np, pandas as pd
 from sklearn.linear_model import LogisticRegression
 
 warnings.filterwarnings("ignore", category=FutureWarning)
-SENS = len(sys.argv) > 1 and sys.argv[1] == "sens"
-SUF = "_sens" if SENS else ""
+MODE = sys.argv[1] if len(sys.argv) > 1 else ""
+SENS, VER = MODE == "sens", MODE == "verified"
+SUF = "_sens" if SENS else ("_verified" if VER else "")
 OUT = os.path.join("data", "processed")
 ALPHAS, GRID, REF_ELO, CAP = (0.20, 0.10, 0.05, 0.01), np.arange(0, 1505, 5), {"<2200": 2100, "2200-2499": 2350, "2500+": 2600}, 900
 rng = np.random.default_rng(7)
@@ -36,6 +38,11 @@ if SENS:
     n0 = len(g)
     g = g[~g["elo_mismatch_any"].fillna(False) & ~g["tc_borderline"].fillna(False)].copy()
     P(f"SENSITIVITY RUN: dropped {n0 - len(g)} games (Elo mismatch >100 or borderline time control); {len(g)} left")
+if VER:
+    n0 = len(g)
+    ok = lambda s: g[f"{s}_elo_fide"].notna() & ((g[f"{s}_elo_final"] - g[f"{s}_elo_fide"]).abs() <= 100)
+    g = g[ok("white") & ok("black")].copy()
+    P(f"VERIFIED RUN: keeping only games where BOTH ratings are confirmed by the FIDE list (within 100 points): {len(g)} of {n0} games")
 # cluster = the tournament (broadcast_name). NOT broadcast_url: that is one URL per ROUND (about 12 games), so rounds of the
 # same tournament would land in both halves and look "unseen". Series that repeat yearly are told apart by the year.
 g["cluster"] = g["broadcast_name"].astype(str) + "|" + g["period"].astype(str).str[:4]

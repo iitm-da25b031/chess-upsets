@@ -1,0 +1,69 @@
+== exclusions
+start (clean games)                                       1117314
+  (games with no game date, dated by source month: 135431)   1117314
+drop games dated before 2019 (date artefacts)             1117287
+both Elos known                                            885313
+time control known                                         862153
+at least 10 plies (shorter results are walkovers/forfeits recorded as games)    858742
+
+analysis games: 858742   with an underdog (gap>0): 857392   exact ties: 1350
+
+== kappa table (draw parameter)
+ tc_class      band  n_near_equal  draw_rate_equal  kappa  fallback
+    blitz 2200-2499          1473            0.232  0.602     False
+    blitz     2500+          2341            0.293  0.827     False
+    blitz     <2200          3321            0.139  0.324     False
+classical 2200-2499         14437            0.492  1.933     False
+classical     2500+          6596            0.630  3.409     False
+classical     <2200         22500            0.326  0.969     False
+    rapid 2200-2499          1589            0.355  1.100     False
+    rapid     2500+          2229            0.440  1.569     False
+    rapid     <2200          4665            0.207  0.521     False
+
+== games by class
+tc_class
+classical    610139
+rapid        141368
+blitz        107235
+
+== upset counts (underdog wins or draws with q < alpha)
+alpha=0.20: classical 47907 (7.85%), rapid 11858 (8.39%), blitz 8304 (7.74%)
+alpha=0.10: classical 6188 (1.01%), rapid 2389 (1.69%), blitz 1689 (1.58%)
+alpha=0.05: classical 838 (0.14%), rapid 589 (0.42%), blitz 406 (0.38%)
+alpha=0.01: classical 27 (0.00%), rapid 54 (0.04%), blitz 30 (0.03%)
+
+== overall calibration (underdog, all gaps): observed vs model score by class
+                n  observed   model  plain_elo
+tc_class                                      
+blitz      107073    0.3208  0.2997     0.2663
+classical  609182    0.3221  0.3577     0.2871
+rapid      141137    0.3029  0.3031     0.2550
+
+== by gap bin (all classes pooled)
+                n   u_win  u_draw  u_score  model_score  elo_score  upset_10
+gap_bin                                                                     
+0        116380.0  0.2824  0.3777   0.4712       0.4774     0.4636    0.0000
+50       136880.0  0.2437  0.3523   0.4199       0.4330     0.3936    0.0000
+100      146945.0  0.2091  0.3161   0.3672       0.3888     0.3285    0.0000
+150      130787.0  0.1803  0.2742   0.3174       0.3449     0.2692    0.0003
+200       99456.0  0.1525  0.2328   0.2689       0.3024     0.2171    0.0021
+250       71425.0  0.1286  0.1997   0.2284       0.2627     0.1723    0.0098
+300       50009.0  0.1083  0.1649   0.1908       0.2268     0.1350    0.0376
+350       34275.0  0.0905  0.1459   0.1635       0.1938     0.1049    0.0849
+400       23492.0  0.0743  0.1148   0.1317       0.1652     0.0809    0.0743
+450       15586.0  0.0630  0.0983   0.1122       0.1390     0.0618    0.0630
+500       10593.0  0.0521  0.0847   0.0944       0.1179     0.0471    0.0523
+550        7157.0  0.0502  0.0651   0.0827       0.0989     0.0359    0.0559
+600       14407.0  0.0369  0.0505   0.0621       0.0614     0.0182    0.0588
+
+== favourite's colour: underdog score when underdog has White vs Black, gap 50-199
+                            size    mean
+tc_class  underdog_color                
+blitz     black            23879  0.3550
+          white            23694  0.4036
+classical black           154613  0.3274
+          white           153573  0.4067
+rapid     black            29593  0.3374
+          white            29260  0.4044
+
+Rows with gap_bin n < 100 are unreliable; every figure must show n.

@@ -29,6 +29,7 @@ log.append((f"  (games with no game date, dated by source month: {int(g['game_da
 keep(g["year"] >= 2019, "drop games dated before 2019 (date artefacts)")
 keep(g["analysis_ok"], "both Elos known")
 keep(g["tc_class"] != "unknown", "time control known")
+keep(g["n_plies"] >= 10, "at least 10 plies (shorter results are walkovers/forfeits recorded as games)")
 g = g.reset_index(drop=True)
 
 # ---- basic features ---------------------------------------------------------------
