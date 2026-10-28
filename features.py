@@ -24,11 +24,40 @@ log = [("start (clean games)", len(g))]
 def keep(mask, name):
     global g
     g = g[mask].copy(); log.append((name, len(g)))
+# ---- repair time controls estimated from glitchy clocks ---------------------------------------------------------
+# When the PGN has no time-control text we estimate base and increment from the clocks. A glitch in the clock feed can give an
+# impossible increment (> 60 s); that always pushes the game into "classical", whatever it really was. All games of one round
+# share a time control, so such games take the dominant time control of the verified games in the same round (broadcast_url);
+# failing that, of the same tournament (broadcast_name) if one control covers >= 80% of its verified games; failing that the
+# time control is "unknown" and the game is dropped below.
+bad = (g["tc_source"] == "clock_raw") & (g["tc_inc_s"] > 60)
+good = g[g["tc_source"].isin(["string_verified_by_clock", "clock_snapped"]) & g["tc_base_s"].notna()]
+def dominant(key):
+    c = good.groupby([key, "tc_base_s", "tc_inc_s"]).size().rename("n").reset_index()
+    c["share"] = c["n"] / c.groupby(key)["n"].transform("sum")
+    return c.sort_values("n", ascending=False).drop_duplicates(key).query("share >= 0.8").set_index(key)[["tc_base_s", "tc_inc_s"]]
+fix = pd.DataFrame(index=g.index, columns=["b", "i", "how"], dtype=object)
+for key, how in (("broadcast_url", "round_consensus"), ("broadcast_name", "tournament_consensus")):
+    dom = dominant(key)
+    m = bad & fix["b"].isna() & g[key].isin(dom.index)
+    fix.loc[m, "b"] = g.loc[m, key].map(dom["tc_base_s"]); fix.loc[m, "i"] = g.loc[m, key].map(dom["tc_inc_s"]); fix.loc[m, "how"] = how
+done = fix["b"].notna()
+tot = fix.loc[done, "b"].astype(float) + 60 * fix.loc[done, "i"].astype(float)
+old_class = g.loc[done, "tc_class"].copy()
+g.loc[done, "tc_base_s"], g.loc[done, "tc_inc_s"] = fix.loc[done, "b"].astype(float), fix.loc[done, "i"].astype(float)
+g.loc[done, "tc_class"] = np.select([tot <= 600, tot < 3600], ["blitz", "rapid"], "classical")
+g.loc[done, "tc_source"] = fix.loc[done, "how"]
+g.loc[done, "tc_borderline"] = (np.minimum((tot - 600).abs(), (tot - 3600).abs()) <= 180)
+unfixed = bad & ~done
+g.loc[unfixed, "tc_class"] = "unknown"
+g.loc[unfixed, "tc_source"] = "clock_glitch_unresolved"
+log.append((f"  (glitchy-clock time controls: {int(bad.sum())} games; repaired from round/tournament {int(done.sum())}, "
+            f"unresolved -> unknown {int(unfixed.sum())}; repaired games that changed class: {int((old_class != g.loc[done, 'tc_class']).sum())})", len(g)))
 g["year"] = pd.to_numeric(g["period"].astype(str).str[:4], errors="coerce")   # period = game month, falls back to the file's month
 log.append((f"  (games with no game date, dated by source month: {int(g['game_date'].isna().sum())})", len(g)))
 keep(g["year"] >= 2019, "drop games dated before 2019 (date artefacts)")
 keep(g["analysis_ok"], "both Elos known")
-keep(g["tc_class"] != "unknown", "time control known")
+keep(g["tc_class"] != "unknown", "time control known (incl. unresolved glitchy clocks)")
 keep(g["n_plies"] >= 10, "at least 10 plies (shorter results are walkovers/forfeits recorded as games)")
 g = g.reset_index(drop=True)
 
