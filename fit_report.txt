@@ -1,0 +1,89 @@
+== model comparison, mean log-likelihood per game on HELD-OUT (even-month) games; higher is better
+ tc_class                                            model  n_test  test_loglik  train_loglik  gain_vs_A_per_game
+classical A fixed: s=400, w=0, kappa from near-equal games  314595      -0.9566       -0.9529              0.0000
+classical                                   B kappa fitted  314595      -0.9491       -0.9446              0.0075
+classical                            C + White advantage w  314595      -0.9444       -0.9400              0.0121
+classical                         D + scale s (full model)  314595      -0.9412       -0.9353              0.0153
+    rapid A fixed: s=400, w=0, kappa from near-equal games   79697      -0.9163       -0.8743              0.0000
+    rapid                                   B kappa fitted   79697      -0.9130       -0.8712              0.0033
+    rapid                            C + White advantage w   79697      -0.9102       -0.8686              0.0061
+    rapid                         D + scale s (full model)   79697      -0.9105       -0.8686              0.0058
+    blitz A fixed: s=400, w=0, kappa from near-equal games   62435      -0.8980       -0.8801              0.0000
+    blitz                                   B kappa fitted   62435      -0.8964       -0.8788              0.0015
+    blitz                            C + White advantage w   62435      -0.8949       -0.8772              0.0031
+    blitz                         D + scale s (full model)   62435      -0.8909       -0.8752              0.0070
+
+== fitted parameters (full model D)
+ tc_class  scale_s  white_adv_points  kappa_<2200  kappa_2200-2499  kappa_2500+
+classical  315.098            38.063        0.868            1.463        2.505
+    rapid  394.904            33.091        0.446            0.815        1.495
+    blitz  463.761            27.271        0.285            0.460        0.710
+   scale_s: 400 = textbook Elo. white_adv_points: rating points White is worth. kappa: draw parameter by rating band.
+
+== held-out calibration: underdog score, observed vs fixed vs fitted model (gap bins of 100)
+ tc_class  gap100        n  observed  model_fixed  model_fitted  obs_win  fit_win
+    blitz       0  16317.0    0.4520       0.4408        0.4473   0.3508   0.3574
+    blitz     100  19502.0    0.3648       0.3377        0.3539   0.2800   0.2692
+    blitz     200  12631.0    0.2788       0.2451        0.2686   0.2132   0.1989
+    blitz     300   6722.0    0.2149       0.1693        0.1944   0.1656   0.1371
+    blitz     400   3498.0    0.1428       0.1140        0.1380   0.1026   0.0913
+    blitz     500   1835.0    0.1063       0.0769        0.0969   0.0785   0.0585
+    blitz     600   1843.0    0.0670       0.0399        0.0533   0.0521   0.0279
+classical       0  93992.0    0.4441       0.4556        0.4402   0.2407   0.2568
+classical     100 107457.0    0.3421       0.3763        0.3365   0.1760   0.1734
+classical     200  62295.0    0.2477       0.2996        0.2435   0.1239   0.1071
+classical     300  29218.0    0.1766       0.2308        0.1690   0.0858   0.0613
+classical     400  12459.0    0.1211       0.1736        0.1139   0.0563   0.0328
+classical     500   5132.0    0.0899       0.1273        0.0758   0.0446   0.0172
+classical     600   3558.0    0.0583       0.0784        0.0411   0.0284   0.0066
+    rapid       0  19622.0    0.4499       0.4476        0.4451   0.3146   0.3162
+    rapid     100  23333.0    0.3526       0.3518        0.3443   0.2349   0.2281
+    rapid     200  17246.0    0.2744       0.2642        0.2534   0.1847   0.1587
+    rapid     300   9269.0    0.1957       0.1890        0.1769   0.1311   0.1024
+    rapid     400   4965.0    0.1435       0.1332        0.1217   0.0955   0.0626
+    rapid     500   2577.0    0.1168       0.0940        0.0841   0.0722   0.0376
+    rapid     600   2558.0    0.0858       0.0499        0.0436   0.0575   0.0155
+
+weighted mean |observed - model| over those bins: fixed 0.0277   fitted 0.0075
+
+== same, split by the underdog's colour (gap 100-299 only)
+ tc_class underdog_color  gap100       n  observed  model_fixed  model_fitted  obs_win  fit_win
+    blitz          black     100  9871.0    0.3435       0.3378        0.3292   0.2650   0.2460
+    blitz          black     200  6268.0    0.2486       0.2450        0.2466   0.1887   0.1790
+    blitz          white     100  9631.0    0.3867       0.3376        0.3792   0.2953   0.2930
+    blitz          white     200  6363.0    0.3085       0.2452        0.2903   0.2373   0.2186
+classical          black     100 54142.0    0.3022       0.3762        0.2978   0.1481   0.1418
+classical          black     200 31863.0    0.2140       0.2996        0.2124   0.1041   0.0852
+classical          white     100 53315.0    0.3827       0.3765        0.3759   0.2042   0.2055
+classical          white     200 30432.0    0.2830       0.2995        0.2760   0.1446   0.1301
+    rapid          black     100 11754.0    0.3198       0.3518        0.3126   0.2099   0.1994
+    rapid          black     200  8697.0    0.2449       0.2639        0.2263   0.1625   0.1362
+    rapid          white     100 11579.0    0.3858       0.3518        0.3766   0.2604   0.2572
+    rapid          white     200  8549.0    0.3044       0.2645        0.2809   0.2073   0.1816
+
+== critical gap (rating points) at which the underdog's chance of WINNING falls to alpha, fitted model
+alpha                                 0.01   0.05   0.10
+tc_class  band      underdog_colour                     
+blitz     2200-2499 black            889.0  545.0  384.0
+                    white            943.0  599.0  439.0
+          2500+     black            884.0  533.0  368.0
+                    white            938.0  588.0  422.0
+          <2200     black            892.0  553.0  396.0
+                    white            947.0  607.0  451.0
+classical 2200-2499 black            571.0  319.0  197.0
+                    white            647.0  395.0  273.0
+          2500+     black            556.0  287.0  151.0
+                    white            633.0  363.0  228.0
+          <2200     black            579.0  338.0  223.0
+                    white            655.0  414.0  299.0
+rapid     2200-2499 black            741.0  440.0  297.0
+                    white            807.0  506.0  363.0
+          2500+     black            729.0  413.0  259.0
+                    white            795.0  480.0  325.0
+          <2200     black            747.0  454.0  318.0
+                    white            813.0  521.0  384.0
+
+== upsets under the fitted model (underdog wins/draws with q_fit < alpha)
+alpha=0.10: classical 12279 (2.01%), rapid 2422 (1.71%), blitz 915 (0.85%)
+alpha=0.05: classical 2857 (0.47%), rapid 633 (0.45%), blitz 192 (0.18%)
+alpha=0.01: classical 141 (0.02%), rapid 57 (0.04%), blitz 7 (0.01%)

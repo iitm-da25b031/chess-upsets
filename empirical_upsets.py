@@ -15,7 +15,7 @@ rarer than alpha for a game with that gap, class, colour and strength level.
 CRITICAL GAP: the smallest rating gap where P(underdog wins) falls below alpha, with a 95% interval from the
 cluster-robust covariance (1000 draws). Also given: the same for the underdog's share of DECISIVE games (draws removed),
 and a no-model cross-check by isotonic regression. Differences between classes get an interval too.
-Writes data/processed/critical_gap_empirical[_sens].csv, calibration_empirical[_sens].csv, upsets_empirical[_sens].parquet,
+Writes data/processed/critical_gap_empirical[_sens].csv, fitted_curves[_sens].csv, model_coefficients_empirical[_sens].csv, calibration_empirical[_sens].csv, upsets_empirical[_sens].parquet,
 empirical_report[_sens].txt"""
 import os, sys
 import warnings
@@ -124,6 +124,26 @@ for c in classes:
                                  hi95=float(np.nanpercentile(cg, 97.5)) if np.isfinite(cg).any() else np.nan))
 crit = pd.DataFrame(rows)
 crit.to_csv(os.path.join(OUT, f"critical_gap_empirical{SUF}.csv"), index=False)
+
+# ---- export for the dashboard: coefficients and fitted curves (own random generator, so the results above do not change)
+rng2 = np.random.default_rng(11)
+cf, fc = [], []
+for c in classes:
+    for col in colours:
+        th_w, cov_w = models[(c, col, "win", "all")]
+        th_n, _ = models[(c, col, "notlose", "all")]
+        for oc, th in (("win", th_w), ("notlose", th_n)):
+            cf.append(dict(tc_class=c, underdog_colour=col, outcome=oc, intercept=th[0], b_gap=th[1], b_gap2=th[2], b_gap3=th[3], b_avgelo=th[4]))
+        samp = rng2.multivariate_normal(th_w, cov_w, 500)
+        for band, e in REF_ELO.items():
+            Xg = design(GRID, np.full(len(GRID), e))
+            Z = np.column_stack([np.ones(len(GRID)), Xg])
+            pg = 1 / (1 + np.exp(-(samp @ Z.T)))
+            fc.append(pd.DataFrame(dict(tc_class=c, underdog_colour=col, band=band, ref_avg_elo=e, gap=GRID,
+                      p_win=predict(th_w, Xg), p_win_lo95=np.percentile(pg, 2.5, axis=0), p_win_hi95=np.percentile(pg, 97.5, axis=0),
+                      p_notlose=np.maximum(predict(th_n, Xg), predict(th_w, Xg)))))
+pd.DataFrame(cf).to_csv(os.path.join(OUT, f"model_coefficients_empirical{SUF}.csv"), index=False)
+pd.concat(fc).to_csv(os.path.join(OUT, f"fitted_curves{SUF}.csv"), index=False)
 P("\n== critical gap: smallest rating gap where P(underdog wins) < alpha  (95% interval); band = strength level of the players")
 for al in ALPHAS[1:]:
     P(f"\n  alpha = {al}")
