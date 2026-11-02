@@ -1,39 +1,39 @@
-games: 862153   upset flags available for 860801
+games: 858123   upset flags available for 856773
 
 == game length (plies) outliers per time control
  tc_class      n  median  mad_sd  iqr_fence_lo  iqr_fence_hi  iqr_outliers  mad_outliers  short_games
-    blitz 107811    83.0    32.6          -4.5         175.5          2513          1172         1183
-classical 612303    81.0    31.1          -4.0         172.0         12153          6715         6691
-    rapid 142039    84.0    32.6          -5.0         179.0          2771          1484         1437
+    blitz 107400    83.0    32.6          -6.0         178.0          2253          1173          607
+classical 609011    81.0    31.1          -4.0         172.0         12127          6698         4527
+    rapid 141712    85.0    32.6          -5.0         179.0          2776          1441          766
 
 == Isolation Forest (1% most isolated games per time control): how many are upsets?
-   alpha=0.20: upset rate among outliers 14.88% vs others 8.17%
-   alpha=0.10: upset rate among outliers 7.78% vs others 1.21%
-   alpha=0.05: upset rate among outliers 1.99% vs others 0.11%
+   alpha=0.20: upset rate among outliers 15.03% vs others 8.17%
+   alpha=0.10: upset rate among outliers 7.44% vs others 1.23%
+   alpha=0.05: upset rate among outliers 1.82% vs others 0.12%
 
-== upset audit at alpha=0.10: 11015 upsets
-   short games (<20 plies): 164 (1.5%) vs 1.1% of all games
+== upset audit at alpha=0.10: 11049 upsets
+   short games (<20 plies): 27 (0.2%) vs 0.7% of all games
    length outliers (IQR / MAD): 2.0% / 1.1% vs 2.0% / 1.1% of all games
-   Isolation-Forest outliers: 6.1% vs 1.0%
+   Isolation-Forest outliers: 5.7% vs 1.0%
    PGN/FIDE Elo mismatch flag on either side: 1.8% vs 2.0%
    time control borderline: 2.7% vs 3.9%
    upsets by gap bin:
 gap_bin
-50        6
-100     113
-150     664
-200    1293
-250    1598
-300    1766
-350    1537
-400    1133
-450     829
-500     582
-550     486
-600    1008
+50        5
+100     111
+150     644
+200    1277
+250    1633
+300    1813
+350    1554
+400    1138
+450     838
+500     570
+550     477
+600     989
    200 rarest upsets saved to upset_audit_top.csv: open a few game_url links in Lichess and check they are real games.
 
-== players with >=30 games as underdog: 2206; median upset rate 2.56%; players with robust z > 3.5: 128
+== players with >=30 games as underdog: 2199; median upset rate 2.56%; players with robust z > 3.5: 128
    share of all alpha=0.10 upsets produced by the top 20 players: 1.5%
 
-== SQLite: data\processed\chess_upsets.sqlite  (451 MB), table games = 862153 rows; upsets at alpha=0.10 by class: [('blitz', 107811, 603), ('classical', 612303, 8944), ('rapid', 142039, 1468)]
+== SQLite: data\processed\chess_upsets.sqlite  (449 MB), table games = 858123 rows; upsets at alpha=0.10 by class: [('blitz', 107400, 618), ('classical', 609011, 8952), ('rapid', 141712, 1479)]

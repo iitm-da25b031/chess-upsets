@@ -70,7 +70,7 @@ tn = tn[tn["games"] >= 50].copy(); tn["rate"] = tn["upsets"] / tn["games"]
 tn.sort_values("rate", ascending=False).to_csv(os.path.join(OUT, "tournaments.csv"), index=False)
 
 for f in ["critical_gap_empirical.csv", "critical_gap_empirical_verified.csv", "critical_gap_decisive.csv",
-          "critical_gap_decisive_verified.csv", "critical_gap_isotonic_verified.csv", "kappa_table.csv",
+          "critical_gap_decisive_verified.csv", "critical_gap_isotonic_verified.csv", "critical_gap_diff_empirical.csv", "critical_gap_diff_empirical_verified.csv", "calibration_empirical.csv", "calibration_empirical_verified.csv", "kappa_table.csv",
           "fitted_curves.csv", "fitted_curves_verified.csv", "model_coefficients_empirical.csv", "model_coefficients_empirical_verified.csv"]:
     for src in (".", P):
         if os.path.exists(os.path.join(src, f)):

@@ -124,6 +124,18 @@ for c in classes:
                                  hi95=float(np.nanpercentile(cg, 97.5)) if np.isfinite(cg).any() else np.nan))
 crit = pd.DataFrame(rows)
 crit.to_csv(os.path.join(OUT, f"critical_gap_empirical{SUF}.csv"), index=False)
+# differences between time-control classes, with an interval from the same draws (for the dashboard, all bands and alphas)
+drows = []
+for col in colours:
+    for band in REF_ELO:
+        for al in ALPHAS:
+            for a_, b_ in (("classical", "rapid"), ("rapid", "blitz"), ("classical", "blitz")):
+                d = draws[(a_, col, band, al)] - draws[(b_, col, band, al)]
+                d = d[np.isfinite(d)]
+                if len(d):
+                    drows.append(dict(underdog_colour=col, band=band, alpha=al, pair=f"{a_} - {b_}", diff=float(np.median(d)),
+                                      lo95=float(np.percentile(d, 2.5)), hi95=float(np.percentile(d, 97.5))))
+pd.DataFrame(drows).to_csv(os.path.join(OUT, f"critical_gap_diff_empirical{SUF}.csv"), index=False)
 
 # ---- export for the dashboard: coefficients and fitted curves (own random generator, so the results above do not change)
 rng2 = np.random.default_rng(11)
