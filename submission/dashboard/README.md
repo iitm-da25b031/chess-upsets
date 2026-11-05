@@ -19,7 +19,6 @@ Folder layout:
 * `common.py`: colours and helpers shared by the pages
 * `viewpage.py` and `viz.py`: figures and captions shared with the report notebook (`viz.py` is identical to `../viz/viz.py`)
 * `pages/`: one file per page
-* `archive/pages/`: earlier pages (full data page, finding, model checks, who and where), kept for reference and not loaded by the app
 * `assets/style.css`: styling
 * `chess_pieces.py`: board artwork
 * `data/`: the tables the app reads
