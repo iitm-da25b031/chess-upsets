@@ -28,7 +28,7 @@ About 1.26 million over-the-board games relayed on Lichess (monthly broadcast PG
 | `dashboard/` | the interactive Dash app (see `dashboard/README.md`) |
 | `data/raw/` | downloaded files, never edited; `MANIFEST.csv`, URL lists, `compliance/` (saved robots.txt and terms pages) |
 | `data/interim/` | parsed and intermediate tables |
-| `data/clean/` | the final table `analysis_games.parquet` |
+| `data/clean/` | small model result tables (CSV). The final table `analysis_games.parquet` (83 MB) is not in the repository; it is in the download link below or rebuilt by notebooks 01 and 02 |
 | `reports/` | `cleaning_log.csv`, `data_dictionary.csv`, `dtype_roundtrip.txt`, `format_comparison.csv`, `missingness_tests.csv`, `outlier_summary.csv`, `raw_profile.csv`, `games_per_month.csv`, `model_outputs/` |
 | `requirements.txt` | library versions |
 

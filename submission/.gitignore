@@ -5,7 +5,6 @@ data/raw/fide/*
 !data/raw/fide/.gitkeep
 data/interim/*
 data/clean/*.parquet
-!data/clean/analysis_games.parquet
 !data/interim/.gitkeep
 !data/interim/README.md
 !data/clean/.gitkeep

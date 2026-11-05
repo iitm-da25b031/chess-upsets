@@ -31,4 +31,3 @@ submission/data/raw/fide/
 submission/data/interim/*
 !submission/data/interim/README.md
 submission/data/clean/*.parquet
-!submission/data/clean/analysis_games.parquet
