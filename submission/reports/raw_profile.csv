@@ -1,0 +1,156 @@
+table,column,dtype,missing,missing_%,source,meaning
+games_2020-01.parquet,event,string,0,0.0,Lichess PGN,PGN Event tag: name of the event
+games_2020-01.parquet,site,string,40,4.2,Lichess PGN,PGN Site tag: place or website
+games_2020-01.parquet,date,string,40,4.2,Lichess PGN,"PGN Date tag as written (may be partial, e.g. 2024.??.??)"
+games_2020-01.parquet,round,string,40,4.2,Lichess PGN,PGN Round tag
+games_2020-01.parquet,white,string,0,0.0,Lichess PGN,White player's name as written
+games_2020-01.parquet,black,string,0,0.0,Lichess PGN,Black player's name as written
+games_2020-01.parquet,result,string,0,0.0,Lichess PGN,"PGN Result tag (1-0, 0-1, 1/2-1/2, * and variants)"
+games_2020-01.parquet,white_elo,int64,85,8.9,Lichess PGN,White's rating tag (integer; non-numeric values become missing)
+games_2020-01.parquet,white_title,string,846,88.9,Lichess PGN,"White's FIDE title (GM, IM, ...)"
+games_2020-01.parquet,white_fide_id,string,936,98.3,Lichess PGN,White's FIDE id: join key to the FIDE lists
+games_2020-01.parquet,black_elo,int64,85,8.9,Lichess PGN,Black's rating tag
+games_2020-01.parquet,black_title,string,848,89.1,Lichess PGN,Black's FIDE title
+games_2020-01.parquet,black_fide_id,string,936,98.3,Lichess PGN,Black's FIDE id
+games_2020-01.parquet,time_control,string,339,35.6,Lichess PGN,"PGN TimeControl tag as written (e.g. 5400+30, 90+30, '90 min + 30 sec')"
+games_2020-01.parquet,variant,string,0,0.0,Lichess PGN,"PGN Variant tag (Standard, Chess960, ...)"
+games_2020-01.parquet,eco,string,0,0.0,Lichess PGN,ECO opening code
+games_2020-01.parquet,opening,string,0,0.0,Lichess PGN,Opening name
+games_2020-01.parquet,study_name,string,0,0.0,Lichess PGN,Lichess study that holds the broadcast round
+games_2020-01.parquet,chapter_name,string,0,0.0,Lichess PGN,Study chapter (one board)
+games_2020-01.parquet,broadcast_name,string,0,0.0,Lichess PGN,Name of the Lichess broadcast (tournament)
+games_2020-01.parquet,broadcast_url,string,0,0.0,Lichess PGN,URL of the broadcast round
+games_2020-01.parquet,game_url,string,0,0.0,Lichess PGN,Lichess URL of the game; unique key of a game
+games_2020-01.parquet,n_plies,int64,0,0.0,parser (this notebook),Number of half-moves in the move text
+games_2020-01.parquet,has_clk,bool,0,0.0,parser (this notebook),Move text contains clock readings
+games_2020-01.parquet,has_eval,bool,0,0.0,parser (this notebook),Move text contains engine evaluations
+games_2020-01.parquet,first_clk_w,double,40,4.2,parser (this notebook),White's clock after its first move (seconds)
+games_2020-01.parquet,first_clk_b,double,43,4.5,parser (this notebook),Black's clock after its first move (seconds)
+games_2020-01.parquet,last_clk_w,double,40,4.2,parser (this notebook),White's last clock reading (seconds)
+games_2020-01.parquet,last_clk_b,double,43,4.5,parser (this notebook),Black's last clock reading (seconds)
+games_2020-01.parquet,n_inacc_w,int64,0,0.0,parser (this notebook),White moves annotated ?! (inaccuracy)
+games_2020-01.parquet,n_mistake_w,int64,0,0.0,parser (this notebook),White moves annotated ? (mistake)
+games_2020-01.parquet,n_blunder_w,int64,0,0.0,parser (this notebook),White moves annotated ?? (blunder)
+games_2020-01.parquet,n_inacc_b,int64,0,0.0,parser (this notebook),Black moves annotated ?!
+games_2020-01.parquet,n_mistake_b,int64,0,0.0,parser (this notebook),Black moves annotated ?
+games_2020-01.parquet,n_blunder_b,int64,0,0.0,parser (this notebook),Black moves annotated ??
+games_2020-01.parquet,utc_date,string,912,95.8,Lichess PGN,PGN UTCDate tag: date the game was played (UTC)
+games_2020-01.parquet,utc_time,string,912,95.8,Lichess PGN,PGN UTCTime tag: start time (UTC)
+games_2020-01.parquet,game_date,timestamp[us],0,0.0,parser (this notebook),"Game date: UTCDate, else Date (missing if neither is a full date)"
+games_2020-01.parquet,source_month,string,0,0.0,parser (this notebook),Month of the PGN file the game came from (YYYY-MM)
+all_games.parquet,event,string,0,0.0,Lichess PGN,PGN Event tag: name of the event
+all_games.parquet,site,string,440910,34.9,Lichess PGN,PGN Site tag: place or website
+all_games.parquet,date,string,358871,28.4,Lichess PGN,"PGN Date tag as written (may be partial, e.g. 2024.??.??)"
+all_games.parquet,round,string,172705,13.7,Lichess PGN,PGN Round tag
+all_games.parquet,white,string,875,0.1,Lichess PGN,White player's name as written
+all_games.parquet,black,string,1019,0.1,Lichess PGN,Black player's name as written
+all_games.parquet,result,string,3,0.0,Lichess PGN,"PGN Result tag (1-0, 0-1, 1/2-1/2, * and variants)"
+all_games.parquet,white_elo,int64,215956,17.1,Lichess PGN,White's rating tag (integer; non-numeric values become missing)
+all_games.parquet,white_title,string,829637,65.6,Lichess PGN,"White's FIDE title (GM, IM, ...)"
+all_games.parquet,white_fide_id,string,400738,31.7,Lichess PGN,White's FIDE id: join key to the FIDE lists
+all_games.parquet,black_elo,int64,217372,17.2,Lichess PGN,Black's rating tag
+all_games.parquet,black_title,string,832587,65.9,Lichess PGN,Black's FIDE title
+all_games.parquet,black_fide_id,string,401699,31.8,Lichess PGN,Black's FIDE id
+all_games.parquet,time_control,string,703934,55.7,Lichess PGN,"PGN TimeControl tag as written (e.g. 5400+30, 90+30, '90 min + 30 sec')"
+all_games.parquet,variant,string,3,0.0,Lichess PGN,"PGN Variant tag (Standard, Chess960, ...)"
+all_games.parquet,eco,string,3,0.0,Lichess PGN,ECO opening code
+all_games.parquet,opening,string,3,0.0,Lichess PGN,Opening name
+all_games.parquet,study_name,string,462189,36.6,Lichess PGN,Lichess study that holds the broadcast round
+all_games.parquet,chapter_name,string,462189,36.6,Lichess PGN,Study chapter (one board)
+all_games.parquet,broadcast_name,string,3,0.0,Lichess PGN,Name of the Lichess broadcast (tournament)
+all_games.parquet,broadcast_url,string,3,0.0,Lichess PGN,URL of the broadcast round
+all_games.parquet,game_url,string,3,0.0,Lichess PGN,Lichess URL of the game; unique key of a game
+all_games.parquet,n_plies,int64,0,0.0,parser (this notebook),Number of half-moves in the move text
+all_games.parquet,has_clk,bool,0,0.0,parser (this notebook),Move text contains clock readings
+all_games.parquet,has_eval,bool,0,0.0,parser (this notebook),Move text contains engine evaluations
+all_games.parquet,first_clk_w,double,133857,10.6,parser (this notebook),White's clock after its first move (seconds)
+all_games.parquet,first_clk_b,double,137155,10.9,parser (this notebook),Black's clock after its first move (seconds)
+all_games.parquet,last_clk_w,double,133857,10.6,parser (this notebook),White's last clock reading (seconds)
+all_games.parquet,last_clk_b,double,137155,10.9,parser (this notebook),Black's last clock reading (seconds)
+all_games.parquet,n_inacc_w,int64,0,0.0,parser (this notebook),White moves annotated ?! (inaccuracy)
+all_games.parquet,n_mistake_w,int64,0,0.0,parser (this notebook),White moves annotated ? (mistake)
+all_games.parquet,n_blunder_w,int64,0,0.0,parser (this notebook),White moves annotated ?? (blunder)
+all_games.parquet,n_inacc_b,int64,0,0.0,parser (this notebook),Black moves annotated ?!
+all_games.parquet,n_mistake_b,int64,0,0.0,parser (this notebook),Black moves annotated ?
+all_games.parquet,n_blunder_b,int64,0,0.0,parser (this notebook),Black moves annotated ??
+all_games.parquet,utc_date,string,537872,42.6,Lichess PGN,PGN UTCDate tag: date the game was played (UTC)
+all_games.parquet,utc_time,string,537872,42.6,Lichess PGN,PGN UTCTime tag: start time (UTC)
+all_games.parquet,game_date,timestamp[us],150140,11.9,parser (this notebook),"Game date: UTCDate, else Date (missing if neither is a full date)"
+all_games.parquet,source_month,string,0,0.0,parser (this notebook),Month of the PGN file the game came from (YYYY-MM)
+all_games.parquet,annotator,string,1189490,94.1,Lichess PGN,PGN Annotator tag
+all_games.parquet,white_team,string,1126420,89.1,Lichess PGN,Team of White (team events)
+all_games.parquet,black_team,string,1126453,89.1,Lichess PGN,Team of Black
+all_games.parquet,termination,string,1214666,96.1,Lichess PGN,"PGN Termination tag (Normal, Unterminated, Time forfeit, ...)"
+all_games.parquet,fen,string,1254086,99.2,Lichess PGN,Start position if it is not the standard one
+all_games.parquet,set_up,string,1256215,99.4,Lichess PGN,PGN SetUp tag; 1 = non-standard start
+all_games.parquet,board,string,1138727,90.1,Lichess PGN,Board number (team events)
+all_games.parquet,chapter_url,string,1199431,94.9,Lichess PGN,URL of the study chapter
+all_games.parquet,white_clock,string,1261482,99.8,Lichess PGN,"PGN tag for White's clock, as written"
+all_games.parquet,black_clock,string,1261485,99.8,Lichess PGN,"PGN tag for Black's clock, as written"
+all_games.parquet,game_id,string,1256063,99.4,Lichess PGN,"Lichess game id, where given"
+all_games.parquet,white_country,string,1258995,99.6,Lichess PGN,"Federation of White, where given"
+all_games.parquet,black_country,string,1258976,99.6,Lichess PGN,"Federation of Black, where given"
+moves_2020-01.parquet,game_url,string,0,0.0,Lichess PGN,Lichess URL of the game; unique key of a game
+moves_2020-01.parquet,movetext,string,0,0.0,Lichess PGN,"Move text with comments, as written"
+fide_standard_2020-01.parquet,fideid,string,0,0.0,FIDE list,FIDE id (ID NUMBER)
+fide_standard_2020-01.parquet,name,string,0,0.0,FIDE list,"Player name, 'Surname, Firstname'"
+fide_standard_2020-01.parquet,country,string,0,0.0,FIDE list,Federation (FED)
+fide_standard_2020-01.parquet,sex,string,0,0.0,FIDE list,M / F
+fide_standard_2020-01.parquet,title,string,0,0.0,FIDE list,"FIDE title (GM, IM, FM, CM, WGM, ...)"
+fide_standard_2020-01.parquet,w_title,string,0,0.0,FIDE list,Women's title
+fide_standard_2020-01.parquet,o_title,string,0,0.0,FIDE list,"Other titles (IA arbiter, FT trainer, ...)"
+fide_standard_2020-01.parquet,foa_title,string,0,0.0,FIDE list,FIDE Online Arena title
+fide_standard_2020-01.parquet,standard_rating,int64,0,0.0,FIDE list,Standard rating in that month's list
+fide_standard_2020-01.parquet,standard_games,int64,0,0.0,FIDE list,Standard-rated games played in the period
+fide_standard_2020-01.parquet,standard_k,int64,0,0.0,FIDE list,Standard K-factor
+fide_standard_2020-01.parquet,birthday,int64,8749,2.5,FIDE list,Year of birth (B-day)
+fide_standard_2020-01.parquet,flag,string,0,0.0,FIDE list,"Inactivity flag: i inactive, wi woman inactive, w woman"
+fide_standard_2020-01.parquet,period,string,0,0.0,FIDE list,Month of the list (from the file name)
+fide_rapid_2020-01.parquet,fideid,string,0,0.0,FIDE list,FIDE id (ID NUMBER)
+fide_rapid_2020-01.parquet,name,string,0,0.0,FIDE list,"Player name, 'Surname, Firstname'"
+fide_rapid_2020-01.parquet,country,string,0,0.0,FIDE list,Federation (FED)
+fide_rapid_2020-01.parquet,sex,string,0,0.0,FIDE list,M / F
+fide_rapid_2020-01.parquet,title,string,0,0.0,FIDE list,"FIDE title (GM, IM, FM, CM, WGM, ...)"
+fide_rapid_2020-01.parquet,w_title,string,0,0.0,FIDE list,Women's title
+fide_rapid_2020-01.parquet,o_title,string,0,0.0,FIDE list,"Other titles (IA arbiter, FT trainer, ...)"
+fide_rapid_2020-01.parquet,foa_title,string,0,0.0,FIDE list,FIDE Online Arena title
+fide_rapid_2020-01.parquet,rapid_rating,int64,0,0.0,FIDE list,Rapid rating in that month's list
+fide_rapid_2020-01.parquet,rapid_games,int64,0,0.0,FIDE list,Rapid-rated games played in the period
+fide_rapid_2020-01.parquet,rapid_k,int64,0,0.0,FIDE list,Rapid K-factor
+fide_rapid_2020-01.parquet,birthday,int64,2866,1.5,FIDE list,Year of birth (B-day)
+fide_rapid_2020-01.parquet,flag,string,0,0.0,FIDE list,"Inactivity flag: i inactive, wi woman inactive, w woman"
+fide_rapid_2020-01.parquet,period,string,0,0.0,FIDE list,Month of the list (from the file name)
+fide_blitz_2020-01.parquet,fideid,string,0,0.0,FIDE list,FIDE id (ID NUMBER)
+fide_blitz_2020-01.parquet,name,string,0,0.0,FIDE list,"Player name, 'Surname, Firstname'"
+fide_blitz_2020-01.parquet,country,string,0,0.0,FIDE list,Federation (FED)
+fide_blitz_2020-01.parquet,sex,string,0,0.0,FIDE list,M / F
+fide_blitz_2020-01.parquet,title,string,0,0.0,FIDE list,"FIDE title (GM, IM, FM, CM, WGM, ...)"
+fide_blitz_2020-01.parquet,w_title,string,0,0.0,FIDE list,Women's title
+fide_blitz_2020-01.parquet,o_title,string,0,0.0,FIDE list,"Other titles (IA arbiter, FT trainer, ...)"
+fide_blitz_2020-01.parquet,foa_title,string,0,0.0,FIDE list,FIDE Online Arena title
+fide_blitz_2020-01.parquet,blitz_rating,int64,0,0.0,FIDE list,Blitz rating in that month's list
+fide_blitz_2020-01.parquet,blitz_games,int64,0,0.0,FIDE list,Blitz-rated games played in the period
+fide_blitz_2020-01.parquet,blitz_k,int64,0,0.0,FIDE list,Blitz K-factor
+fide_blitz_2020-01.parquet,birthday,int64,2608,1.9,FIDE list,Year of birth (B-day)
+fide_blitz_2020-01.parquet,flag,string,0,0.0,FIDE list,"Inactivity flag: i inactive, wi woman inactive, w woman"
+fide_blitz_2020-01.parquet,period,string,0,0.0,FIDE list,Month of the list (from the file name)
+fide_ratings.parquet,fideid,string,0,0.0,FIDE list,FIDE id (ID NUMBER)
+fide_ratings.parquet,standard_rating,int64,321404,6.4,FIDE list,Standard rating in that month's list
+fide_ratings.parquet,standard_games,int64,321404,6.4,FIDE list,Standard-rated games played in the period
+fide_ratings.parquet,standard_k,int64,321404,6.4,FIDE list,Standard K-factor
+fide_ratings.parquet,standard_flag,string,321404,6.4,FIDE list,Inactivity flag in the standard list
+fide_ratings.parquet,rapid_rating,int64,1385109,27.7,FIDE list,Rapid rating in that month's list
+fide_ratings.parquet,rapid_games,int64,1385109,27.7,FIDE list,Rapid-rated games played in the period
+fide_ratings.parquet,rapid_k,int64,1385109,27.7,FIDE list,Rapid K-factor
+fide_ratings.parquet,rapid_flag,string,1385109,27.7,FIDE list,Inactivity flag in the rapid list
+fide_ratings.parquet,blitz_rating,int64,1771168,35.5,FIDE list,Blitz rating in that month's list
+fide_ratings.parquet,blitz_games,int64,1771168,35.5,FIDE list,Blitz-rated games played in the period
+fide_ratings.parquet,blitz_k,int64,1771168,35.5,FIDE list,Blitz K-factor
+fide_ratings.parquet,blitz_flag,string,1771168,35.5,FIDE list,Inactivity flag in the blitz list
+fide_ratings.parquet,period,string,0,0.0,FIDE list,Month of the list (from the file name)
+fide_players.parquet,fideid,string,0,0.0,FIDE list,FIDE id (ID NUMBER)
+fide_players.parquet,name,string,0,0.0,FIDE list,"Player name, 'Surname, Firstname'"
+fide_players.parquet,country,string,0,0.0,FIDE list,Federation (FED)
+fide_players.parquet,sex,string,0,0.0,FIDE list,M / F
+fide_players.parquet,birthday,int64,379,0.4,FIDE list,Year of birth (B-day)
+fide_players.parquet,title,string,0,0.0,FIDE list,"FIDE title (GM, IM, FM, CM, WGM, ...)"

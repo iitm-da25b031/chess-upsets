@@ -1,0 +1,91 @@
+column,dtype,unit,source,meaning,allowed_range,observed_range,n_missing,violations
+event,string,-,Lichess broadcast PGN,PGN Event tag: name of the event,-,"390,570 distinct values",0,
+site,string,-,Lichess broadcast PGN,PGN Site tag: place or website,-,"305,332 distinct values",256579,
+date,string,date,Lichess broadcast PGN,"PGN Date tag as written (may be partial, e.g. 2024.??.??)",-,"2,707 distinct values",195601,
+round,string,-,Lichess broadcast PGN,PGN Round tag,-,"6,181 distinct values",54301,
+white,string,-,Lichess broadcast PGN,White player's name as written,-,"85,537 distinct values",0,
+black,string,-,Lichess broadcast PGN,Black player's name as written,-,"85,863 distinct values",0,
+result,string,-,Lichess broadcast PGN,"PGN Result tag (1-0, 0-1, 1/2-1/2, * and variants)",-,"0-1, 0.5-0.5, 1 - 0, 1-0, 1/2-1/2, ½ - ½, ½-½",0,
+white_elo,float64,Elo,Lichess broadcast PGN,White's rating tag (integer; non-numeric values become missing),-,0 to 2900,1721,
+white_title,string,-,Lichess broadcast PGN,"White's FIDE title (GM, IM, ...)",-,23 distinct values,498857,
+white_fide_id,string,-,Lichess broadcast PGN,White's FIDE id: join key to the FIDE lists,-,"66,539 distinct values",169248,
+black_elo,float64,Elo,Lichess broadcast PGN,Black's rating tag,-,0 to 2900,1698,
+black_title,string,-,Lichess broadcast PGN,Black's FIDE title,-,24 distinct values,501470,
+black_fide_id,string,-,Lichess broadcast PGN,Black's FIDE id,-,"66,763 distinct values",169170,
+time_control,string,-,Lichess broadcast PGN,"PGN TimeControl tag as written (e.g. 5400+30, 90+30, '90 min + 30 sec')",-,930 distinct values,438367,
+variant,string,-,Lichess broadcast PGN,"PGN Variant tag (Standard, Chess960, ...)",-,Standard,0,
+eco,string,-,Lichess broadcast PGN,ECO opening code,-,498 distinct values,0,
+opening,string,-,Lichess broadcast PGN,Opening name,-,"2,617 distinct values",0,
+study_name,string,-,Lichess broadcast PGN,Lichess study that holds the broadcast round,-,"2,404 distinct values",353714,
+chapter_name,string,-,Lichess broadcast PGN,Study chapter (one board),-,"472,521 distinct values",353714,
+broadcast_name,string,-,Lichess broadcast PGN,Name of the Lichess broadcast (tournament),-,"9,957 distinct values",0,
+broadcast_url,string,-,Lichess broadcast PGN,URL of the broadcast round,-,"73,435 distinct values",0,
+game_url,string,-,Lichess broadcast PGN,Lichess URL of the game; unique key of a game,unique,"863,971 distinct values",0,0.0
+n_plies,int64,half-moves,parser (notebook 01),Number of half-moves in the move text,10 to,10 to 599,0,0.0
+has_clk,bool,-,parser (notebook 01),Move text contains clock readings,-,True / False,0,
+has_eval,bool,-,parser (notebook 01),Move text contains engine evaluations,-,True / False,0,
+first_clk_w,float64,seconds,parser (notebook 01),White's clock after its first move (seconds),-,0 to 13066,10943,
+first_clk_b,float64,seconds,parser (notebook 01),Black's clock after its first move (seconds),-,0 to 35510,10044,
+last_clk_w,float64,seconds,parser (notebook 01),White's last clock reading (seconds),-,0 to 86322,10943,
+last_clk_b,float64,seconds,parser (notebook 01),Black's last clock reading (seconds),-,0 to 86199,10044,
+n_inacc_w,int64,-,parser (notebook 01),White moves annotated ?! (inaccuracy),-,0 to 22,0,
+n_mistake_w,int64,-,parser (notebook 01),White moves annotated ? (mistake),-,0 to 13,0,
+n_blunder_w,int64,-,parser (notebook 01),White moves annotated ?? (blunder),-,0 to 68,0,
+n_inacc_b,int64,-,parser (notebook 01),Black moves annotated ?!,-,0 to 28,0,
+n_mistake_b,int64,-,parser (notebook 01),Black moves annotated ?,-,0 to 13,0,
+n_blunder_b,int64,-,parser (notebook 01),Black moves annotated ??,-,0 to 87,0,
+utc_date,string,date,Lichess broadcast PGN,PGN UTCDate tag: date the game was played (UTC),-,"1,127 distinct values",387516,
+utc_time,string,time,Lichess broadcast PGN,PGN UTCTime tag: start time (UTC),-,"45,805 distinct values",387516,
+game_date,datetime64[us],date,parser (notebook 01),"Game date: UTCDate, else Date (missing if neither is a full date)",-,2019-11-23 to 2026-10-13,114208,
+source_month,string,YYYY-MM,parser (notebook 01),Month of the PGN file the game came from (YYYY-MM),-,81 distinct values,0,
+annotator,string,-,Lichess broadcast PGN,PGN Annotator tag,-,51 distinct values,814724,
+white_team,string,-,Lichess broadcast PGN,Team of White (team events),-,"4,826 distinct values",749736,
+black_team,string,-,Lichess broadcast PGN,Team of Black,-,"4,834 distinct values",749759,
+termination,string,-,Lichess broadcast PGN,"PGN Termination tag (Normal, Unterminated, Time forfeit, ...)",-,24 distinct values,838391,
+fen,string,-,Lichess broadcast PGN,Start position if it is not the standard one,-,,863971,
+set_up,string,-,Lichess broadcast PGN,PGN SetUp tag; 1 = non-standard start,-,,863971,
+board,string,-,Lichess broadcast PGN,Board number (team events),-,998 distinct values,780009,
+chapter_url,string,-,Lichess broadcast PGN,URL of the study chapter,-,"47,970 distinct values",816001,
+white_clock,string,-,Lichess broadcast PGN,"PGN tag for White's clock, as written",-,921 distinct values,862545,
+black_clock,string,-,Lichess broadcast PGN,"PGN tag for Black's clock, as written",-,900 distinct values,862543,
+game_id,string,-,Lichess broadcast PGN,"Lichess game id, where given",-,"5,779 distinct values",858144,
+white_country,string,-,Lichess broadcast PGN,"Federation of White, where given",-,67 distinct values,860610,
+black_country,string,-,Lichess broadcast PGN,"Federation of Black, where given",-,64 distinct values,860615,
+base_hat,float64,seconds,derived (notebook 02),Base time estimated from the clocks,30-14400 or missing,30 to 12881,10297,
+inc_hat,float64,seconds,derived (notebook 02),Increment estimated from the clocks (largest clock increase),0-600,0 to 600,9088,
+score_white,float64,points,derived (notebook 02),White's score from the normalised result,"0.0, 0.5, 1.0",0 to 1,0,0.0
+tc_method,string,-,derived (notebook 02),"Rule that parsed the TimeControl string (numeric_min, staged, text, missing, ...)",-,9 distinct values,0,
+period,string,YYYY-MM,derived (notebook 02),"Month used for the FIDE lookup: game month, else month of the file",-,84 distinct values,0,
+date_outside_fide_range,bool,bool,derived (notebook 02),Game month outside the downloaded FIDE months,-,True / False,0,
+white_elo_invalid,bool,bool,derived (notebook 02),PGN rating present but outside 1000-2900,-,True / False,0,
+white_elo_fide,float64,Elo,FIDE rating list,White's rating in the FIDE list of the month and time control,-,1008 to 2893,179285,
+white_elo_source,string,-,derived (notebook 02),pgn / fide,"fide, pgn","fide, pgn",0,0.0
+white_elo_mismatch,bool,bool,derived (notebook 02),PGN and FIDE ratings differ by more than 100 (False if no FIDE rating),-,True / False,0,
+black_elo_invalid,bool,bool,derived (notebook 02),same for Black,-,True / False,0,
+black_elo_fide,float64,Elo,FIDE rating list,same for Black,-,1012 to 2893,179313,
+black_elo_source,string,-,derived (notebook 02),pgn / fide,"fide, pgn","fide, pgn",0,0.0
+black_elo_mismatch,bool,bool,derived (notebook 02),same for Black,-,True / False,0,
+analysis_ok,bool,bool,derived (notebook 02),Both ratings known,True,True / False,0,0.0
+tc_base_s,float64,seconds,derived (notebook 02),"Base time of the time control (string, clock estimate or round consensus)",1 to,30 to 12801,1885,0.0
+tc_inc_s,float64,seconds,derived (notebook 02),Increment per move,0 to,0 to 600,1885,0.0
+tc_class,string,-,derived (notebook 02),"classical / rapid / blitz: base + 60 x increment, <=600 s blitz, <3600 s rapid","blitz, classical, rapid","blitz, classical, rapid",0,0.0
+tc_source,string,-,derived (notebook 02),How the time control was obtained,-,"clock_override, clock_raw, clock_snapped, event_name, round_consensus, string_unverified(no clock), string_verified_by_clock, tournament_consensus",0,
+tc_borderline,bool,bool,derived (notebook 02),Total time within 3 minutes of a class threshold (10 or 60 min),-,True / False,0,
+year,int64,year,derived (notebook 02),Year of the game (from period),2019 to 2026,2019 to 2026,0,0.0
+white_elo_final,int64,Elo,derived (notebook 02),"White rating used: valid PGN rating, else FIDE list",1000 to 2900,1000 to 2900,0,0.0
+black_elo_final,int64,Elo,derived (notebook 02),Black rating used (same rule),1000 to 2900,1000 to 2900,0,0.0
+gap,float64,Elo,derived (notebook 02),Absolute rating difference,0 to 1900,0 to 1750,0,0.0
+avg_elo,float64,Elo,derived (notebook 02),Mean of the two ratings,1000 to 2900,1000 to 2881.5,0,0.0
+has_underdog,bool,bool,derived (notebook 02),gap > 0,-,True / False,0,
+underdog_is_white,bool,bool,derived (notebook 02),White has the lower rating,-,True / False,0,
+fav_is_white,bool,bool,derived (notebook 02),White has the higher rating,-,True / False,0,
+underdog_score,float64,points,derived (notebook 02),"Underdog's score: 1 win, 0.5 draw, 0 loss","0.0, 0.5, 1.0",0 to 1,0,0.0
+underdog_color,string,-,derived (notebook 02),Colour of the lower-rated player (white for exact ties),"black, white","black, white",0,0.0
+band,string,-,derived (notebook 02),Band of avg_elo,"2200-2499, 2500+, <2200","2200-2499, 2500+, <2200",0,0.0
+gap_bin,int64,Elo,derived (notebook 02),Lower edge of the 50-point gap bin; 600 = 600 or more,"0, 100, 150, 200, 250, 300, 350, 400, 450, 50, 500, 550, 600",0 to 600,0,0.0
+elo_mismatch_any,bool,bool,derived (notebook 02),PGN and FIDE differ by >100 for either player,-,True / False,0,
+verified,bool,bool,derived (notebook 02),Both ratings within 100 points of the FIDE list,-,True / False,0,
+len_outlier_iqr,bool,bool,derived (notebook 02),Game length beyond the IQR fence of its time control,-,True / False,0,
+len_outlier_mad,bool,bool,derived (notebook 02),Game length robust z > 3.5,-,True / False,0,
+short_game,bool,bool,derived (notebook 02),Fewer than 20 half-moves,-,True / False,0,
+iforest_outlier,bool,bool,derived (notebook 02),Isolation-Forest outlier (1 % per time control),-,True / False,0,

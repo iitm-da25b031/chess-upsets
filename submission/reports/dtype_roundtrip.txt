@@ -1,0 +1,9 @@
+Parquet round trip of ..\data\clean\analysis_games.parquet (863,971 rows x 90 columns), run 2026-11-05
+columns whose dtype changed: none
+columns whose values changed: none
+
+         types_changed                                                                                                                which
+format                                                                                                                                     
+Parquet              0                                                                                                                 none
+CSV                  1                                                                                   game_date (datetime64[us]->string)
+SQLite               4  game_date (datetime64[us]->string), tc_borderline (bool->int64), has_underdog (bool->int64), verified (bool->int64)

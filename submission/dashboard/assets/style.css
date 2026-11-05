@@ -1,0 +1,93 @@
+/* Upset Explorer: one stylesheet for every page (Dash serves everything in assets/ automatically). Colours: highlight #81b64c, paper #2b2a27, grid #3a3835. */
+
+/* ---- page frame ---- */
+body{background:#262522;color:#fff}
+.card{background:#2b2a27;border:none;border-radius:10px}
+.card-header{background:#2b2a27;border-bottom:1px solid #3a3835;font-weight:700;color:#fff}
+.card-body{color:#fff}
+.side{background:#21201d;min-height:100vh;height:100%;padding-top:18px}
+.brand{font-weight:800;font-size:22px;padding:0 18px 18px}.brand span{color:#81b64c}
+.side a{display:block;padding:11px 18px;color:#c3c2c1;text-decoration:none;font-weight:600}
+.side a.active{background:#2b2a27;color:#fff;border-left:4px solid #81b64c}
+
+/* ---- controls ---- */
+label{display:block;height:24px;font-weight:600;margin-bottom:4px}
+.form-control{background:#1f1e1c;border:1px solid #4a4845;color:#fff}.form-control:focus{background:#1f1e1c;color:#fff}
+.tc-group{display:flex;width:100%;gap:8px}.tc-group>div{flex:1;padding:0;margin:0}.tc-group .btn{width:100%;height:38px;line-height:24px;padding:6px 0}
+.btn-outline-secondary{color:#c3c2c1;border-color:#4a4845}
+.btn-check:checked+.btn,.btn-outline-secondary.active{background:#81b64c;border-color:#81b64c;color:#1b2b10}
+.btn-check:disabled+.btn{opacity:.35;pointer-events:none}                       /* a control that changes nothing on screen is disabled */
+.view-group{display:flex;gap:6px}.view-group>div{padding:0;margin:0}
+.view-group .btn{white-space:nowrap;height:32px;line-height:20px;padding:5px 14px;font-size:14px}
+.slider-wrap *{color:#c3c2c1}.slider-wrap input,.slider-wrap .dash-input-container{display:none}
+.dash-slider-range{background:#81b64c!important}.dash-slider-track{background:#4a4845!important}
+.dash-slider-thumb{border-color:#81b64c!important;background:#81b64c!important}
+.dash-range-slider-input{display:none!important}
+.rc-slider-track{background:#81b64c}.rc-slider-handle{border-color:#81b64c;background:#81b64c}.rc-slider-rail{background:#4a4845}
+input[type=radio]{accent-color:#81b64c}
+
+/* ---- number cards and notes ---- */
+.kpi-label{color:#989795;font-size:13px;margin-bottom:2px}.kpi-value{font-weight:800;margin:0}
+.verdict-on{color:#81b64c}.verdict-off{color:#c3c2c1}
+.q-title{font-weight:700;margin-bottom:6px}
+.notes h6{color:#81b64c;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;margin:0 0 4px}
+.notes p{color:#e5e4e3;font-size:14px;margin:0 0 14px}
+.notes table{width:100%;font-size:13px;color:#e5e4e3;margin-bottom:16px}
+.notes td{padding:3px 0;border-bottom:1px solid #3a3835}.notes td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+
+/* ---- chessboard, player bars and replay controls (page 4) ---- */
+.board-wrap{position:relative;width:380px;margin:0 auto}
+.board-wrap img{display:block;width:380px;height:380px;border-radius:6px}
+.board-wrap img.arrow-img{position:absolute;left:0;top:0;opacity:0;pointer-events:none;transition:opacity .08s}
+.pbar{width:380px;margin:0 auto;display:flex;align-items:center;gap:10px;height:34px;color:#e5e4e3}
+.avatar{width:26px;height:26px;border-radius:4px;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center}
+.av-w{background:#e5e4e3;color:#262522}.av-b{background:#4a4845;color:#fff}
+.pname{font-weight:700;color:#fff}.pelo{color:#989795;font-size:13px}.pscore{margin-left:auto;font-weight:800;font-size:16px;color:#fff}
+.chip{background:#81b64c;color:#1b2b10;font-size:11px;font-weight:800;border-radius:4px;padding:2px 7px}
+.ctrl-row{display:flex;gap:8px;align-items:center;margin-top:10px}
+.nav-btn{background:#3a3835;border:none;color:#e5e4e3;border-radius:8px;height:40px;min-width:52px;font-size:22px;font-weight:700;line-height:1;padding:0 14px}
+.nav-btn:hover{background:#4a4845}.nav-play{background:#81b64c;color:#1b2b10}.nav-play:hover{background:#93c65e}.nav-wide{font-size:14px;font-weight:700}
+.move-label{color:#989795;font-size:13px;min-width:62px;text-align:right}
+.crumb{background:#21201d;border-radius:6px;padding:7px 12px;color:#e5e4e3;font-weight:600;font-size:14px;margin:0 auto 10px;width:380px}
+
+/* ---- opening explorer move list (page 4): a miniature bar chart in every row ---- */
+.mv-head,.mv-row{display:flex;align-items:center;gap:12px;padding:0 10px}
+.mv-head{color:#989795;font-size:12px;font-weight:600;height:26px}.mv-head .mv-move{font-size:12px;font-weight:600;color:#989795}
+.mv-row{height:29px;border-radius:6px;cursor:pointer;color:#e5e4e3;font-size:14px}.mv-row:hover{background:#3a3835}
+.mv-move{width:64px;font-weight:800;font-size:16px;color:#fff}.mv-games{width:84px;text-align:right;color:#c3c2c1;font-variant-numeric:tabular-nums}
+.mv-track{flex:1;position:relative;height:20px}.mv-int{position:absolute;top:9px;height:2px;background:#c3c2c1}
+.mv-bar{position:absolute;top:4px;height:12px;border-radius:2px}.mv-base{position:absolute;top:0;height:20px;border-left:2px dashed #989795}
+.mv-rate{width:58px;text-align:right;font-weight:700;font-variant-numeric:tabular-nums}
+/* hovering row i shows arrow layer i on the board, with no JavaScript */
+#p4_explorer_row:has(.mv-i0:hover) .a0,#p4_explorer_row:has(.mv-i1:hover) .a1,#p4_explorer_row:has(.mv-i2:hover) .a2,#p4_explorer_row:has(.mv-i3:hover) .a3,
+#p4_explorer_row:has(.mv-i4:hover) .a4,#p4_explorer_row:has(.mv-i5:hover) .a5,#p4_explorer_row:has(.mv-i6:hover) .a6,#p4_explorer_row:has(.mv-i7:hover) .a7{opacity:.85!important}
+
+/* ---- ranking list (page 5) ---- */
+.rk-head,.rk-row{display:flex;align-items:center;gap:10px;padding:0 10px}
+.rk-head{color:#989795;font-size:12px;font-weight:600;height:26px}
+.rk-row{height:34px;border-radius:6px;color:#e5e4e3;font-size:14px}.rk-row:hover{background:#3a3835}
+.rk-name{flex:1;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rk-n{width:84px;text-align:right;color:#c3c2c1;font-variant-numeric:tabular-nums}
+.rk-rate{width:56px;text-align:right;font-weight:700;font-variant-numeric:tabular-nums}.rk-z{width:44px;text-align:right;color:#81b64c;font-weight:700}
+
+/* ---- pages with one chart per view (viewpage.py) ---- */
+.fig-card{background:#2b2a27;border-radius:10px;margin-bottom:12px}
+.caps p{color:#e5e4e3;font-size:15px;margin:6px 0}
+.caps summary{color:#81b64c;cursor:pointer;font-weight:600;margin-top:6px}
+.view-group{flex-wrap:wrap}
+.lead-text{color:#c3c2c1}
+.mini{width:100%;font-size:13px;color:#e5e4e3;margin-top:8px}.mini th{color:#989795;font-weight:600;padding:4px 8px}.mini td{padding:4px 8px;border-top:1px solid #3a3835}
+
+/* Presentation evidence controls */
+.explore-settings{background:#2b2a27;padding:12px 16px;border-radius:10px;margin-bottom:16px}
+.explore-settings summary,.notes summary{color:#81b64c;cursor:pointer}
+.selection-label{color:#c3c2c1;font-size:13px;margin-bottom:8px}
+
+/* Put explanatory text in a stable reading area outside the plot. */
+.chart-instruction{color:#c3c2c1;font-size:14px;margin:0 0 10px}
+.opening-key{display:flex;flex-direction:column;gap:6px;padding:10px 12px;margin-bottom:12px;background:#21201d;border-radius:6px;font-size:13px;color:#e5e4e3;line-height:1.5}
+.opening-key>span{display:flex;align-items:center;gap:8px}
+.key-swatch{display:inline-block;width:18px;height:9px;border-radius:2px;flex-shrink:0}
+.key-green{background:#81b64c}.key-grey{background:#6f6e6c}
+.key-baseline{display:inline-block;width:18px;height:14px;border-left:2px dashed #989795;flex-shrink:0}
+.chart-caption{margin-top:12px;max-width:900px}

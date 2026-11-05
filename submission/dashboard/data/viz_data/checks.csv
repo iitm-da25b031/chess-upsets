@@ -1,0 +1,72 @@
+section,name,expected,actual,old,ok,kind
+data,analysis rows,863971,863971,858123.0,True,exact
+data,analysis game_url unique,True,True,,True,cross-check
+data,games with an underdog,862599,862599,856773.0,True,exact
+data,analysis games classical,613735,613735,609011.0,True,exact
+data,analysis games rapid,142763,142763,141712.0,True,exact
+data,analysis games blitz,107473,107473,107400.0,True,exact
+data,median gap classical (within 3 of old),152.0,152.0,152.0,True,stability
+data,median gap rapid (within 3 of old),187.0,188.0,187.0,True,stability
+data,median gap blitz (within 3 of old),174.0,174.0,174.0,True,stability
+data,share gap>=400 pooled (within 0.003 of old),0.0831,0.0834,0.0831,True,stability
+data,wdl total,862599,862599,856773.0,True,exact
+data,empirical join rows,862599,862599,856773.0,True,exact
+data,upsets at 0.10,11114,11114,11049.0,True,exact
+data,upsets at 0.10 classical,9007,9007,8952.0,True,exact
+data,upsets at 0.10 rapid,1483,1483,1479.0,True,exact
+data,upsets at 0.10 blitz,624,624,618.0,True,exact
+data,"draw upsets at 0.10 (BUILD_NOTES_03: wins / draws 10,510 / 604)",604,604,603.0,True,exact
+data,rarest200 flagged,200,200,200.0,True,exact
+data,upset_audit_top = the 200 smallest q_emp among the 0.10 upsets,True,True,,True,cross-check
+data,near-equal n and draw rate equal kappa_table.csv (9 rows x 2 values),18,18,,True,cross-check
+data,yearly total,863971,863971,858123.0,True,exact
+set_compare,clean rows,1129532,1129532,1117314.0,True,exact
+set_compare,clean game_url unique,True,True,,True,cross-check
+set_compare,"glitchy clock estimates (02 cleaning log: 12,828 + 962)",13790,13790,13764.0,True,exact
+set_compare,repaired from round/tournament (02 cleaning log),12828,12828,12802.0,True,exact
+set_compare,unresolved -> unknown (02 cleaning log),962,962,962.0,True,exact
+set_compare,clean games that are in the analysis set,863971,863971,858123.0,True,exact
+set_compare,replayed repair gives the stored analysis tc_class for every analysis game,863971,863971,,True,cross-check
+set_compare,excluded games = clean minus analysis,265561,265561,,True,cross-check
+set_compare,excluded game_urls are exactly the clean games not in the analysis set,True,True,,True,cross-check
+set_compare,remaining after step 1 (02 cleaning log),1129505,1129505,1117287.0,True,exact
+set_compare,remaining after step 2 (02 cleaning log),891337,891337,885313.0,True,exact
+set_compare,remaining after step 3 (02 cleaning log),867399,867399,861534.0,True,exact
+set_compare,remaining after step 4 (02 cleaning log),863971,863971,858123.0,True,exact
+set_compare,replayed filter chain gives the same remaining counts,"[1129505, 891337, 867399, 863971]","[1129505, 891337, 867399, 863971]",,True,cross-check
+set_compare,dropped for 'time control unknown' all have tc_class unknown (replayed repair),True,True,,True,cross-check
+set_compare,missing-Elo share of the cleaned set (02: 21.1%),0.211,0.211,0.208,True,exact
+model,verified recomputed from its definition equals the stored column,863971,863971,,True,cross-check
+model,"verified games, all analysis games (BUILD_NOTES_03)",657365,657365,657325.0,True,exact
+model,model join rows (main + interaction),862599,862599,856773.0,True,exact
+model,max |P(win) from main coefficients - p_win_emp| < 1e-9,True,True,,True,cross-check
+model,max |P(win) from interaction coefficients - p_win_emp_int| < 1e-9,True,True,,True,cross-check
+model,model_bins total games,862599,862599,856773.0,True,exact
+model,"model_bins reproduce model_fit_by_band.csv (bins, inside, n-weighted error; 18 rows)",18,18,,True,cross-check
+model,bins with n>=100 whose main prediction is inside the Wilson interval (BUILD_NOTES_03),193,193,195.0,True,exact
+model,bins with n>=100 whose interaction prediction is inside the Wilson interval (BUILD_NOTES_03),203,203,204.0,True,exact
+model,"classical 2500+ n-weighted error, main (pp)",-2.03,-2.03,-2.03,True,exact
+model,UNVERIFIED-only observed win rapid/white/2200-2499 bin 250 (within 0.01 of old),0.217,0.216,0.217,True,stability
+model,UNVERIFIED-only observed win blitz/white/2200-2499 bin 300 (within 0.01 of old),0.201,0.201,0.201,True,stability
+model,stored main critical gaps reproduced from the coefficients (72 rows),72,72,,True,cross-check
+model,stored interaction critical gaps reproduced from the coefficients (72 rows),72,72,,True,cross-check
+model,critical gap never increases as alpha increases,0,0,0.0,True,exact
+model,headline critical gap white classical 2200-2499 alpha 0.10,280,280.0,275.0,True,exact
+model,headline critical gap white rapid 2200-2499 alpha 0.10,405,405.0,405.0,True,exact
+model,headline critical gap white blitz 2200-2499 alpha 0.10,465,465.0,465.0,True,exact
+model,headline critical gap black classical 2200-2499 alpha 0.10,185,185.0,180.0,True,exact
+model,headline critical gap black rapid 2200-2499 alpha 0.10,310,310.0,315.0,True,exact
+model,headline critical gap black blitz 2200-2499 alpha 0.10,405,405.0,405.0,True,exact
+model,"expected_upsets (main) equals notebook 03's expected_upsets.csv (64 rows, max abs diff < 0.01)",True,True,,True,cross-check
+model,main: observed upsets at 0.10 = wins below + draws below = flag count,11114,11114,,True,cross-check
+model,"main: obs/exp underdog wins with P(win) < 0.10, band <2200",1.05,1.05,1.05,True,exact
+model,"main: obs/exp underdog wins with P(win) < 0.10, band 2200-2499",0.91,0.91,0.91,True,exact
+model,"main: obs/exp underdog wins with P(win) < 0.10, band 2500+",0.77,0.77,0.77,True,exact
+model,"expected_upsets (interaction) equals notebook 03's expected_upsets_interaction.csv (64 rows, max abs diff < 0.01)",True,True,,True,cross-check
+model,interaction: observed upsets at 0.10 = wins below + draws below = flag count,10776,10776,,True,cross-check
+model,"interaction: obs/exp underdog wins with P(win) < 0.10, band <2200",1.04,1.04,1.04,True,exact
+model,"interaction: obs/exp underdog wins with P(win) < 0.10, band 2200-2499",0.97,0.97,0.98,True,exact
+model,"interaction: obs/exp underdog wins with P(win) < 0.10, band 2500+",0.78,0.78,0.78,True,exact
+model,"main: expected upsets at 0.10 (BUILD_NOTES_03: 11,273)",11273,11273,11203.0,True,exact
+model,ordering classical < rapid < blitz holds in all 18 cells (main),0,0,0.0,True,exact
+model,"ordering_check.csv: cells where the ordering holds, all 4 runs (72)",72,72,72.0,True,exact

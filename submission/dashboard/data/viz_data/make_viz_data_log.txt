@@ -1,0 +1,105 @@
+data root: C:\dev\chess-upsets\submission\data
+output:    C:\dev\chess-upsets\submission\viz\viz_data
+analysis games: 863971
+  CHECK [exact] analysis rows: actual=863971 expected=863971 (old table: 858123) -> OK
+  CHECK [cross-check] analysis game_url unique: actual=True expected=True -> OK
+  CHECK [exact] games with an underdog: actual=862599 expected=862599 (old table: 856773) -> OK
+  CHECK [exact] analysis games classical: actual=613735 expected=613735 (old table: 609011) -> OK
+  CHECK [exact] analysis games rapid: actual=142763 expected=142763 (old table: 141712) -> OK
+  CHECK [exact] analysis games blitz: actual=107473 expected=107473 (old table: 107400) -> OK
+  wrote gap_hist.csv: 111 rows, 0.00 MB
+  wrote gap_summary.csv: 4 rows, 0.00 MB
+  CHECK [stability] median gap classical (within 3 of old): actual=152.0 expected=152.0 (old table: 152.0) -> OK
+  CHECK [stability] median gap rapid (within 3 of old): actual=188.0 expected=187.0 (old table: 187.0) -> OK
+  CHECK [stability] median gap blitz (within 3 of old): actual=174.0 expected=174.0 (old table: 174.0) -> OK
+  CHECK [stability] share gap>=400 pooled (within 0.003 of old): actual=0.0834 expected=0.0831 (old table: 0.0831) -> OK
+  wrote wdl_by_gap.csv: 229 rows, 0.01 MB
+  CHECK [exact] wdl total: actual=862599 expected=862599 (old table: 856773) -> OK
+  wrote heat.csv: 1920 rows, 0.06 MB
+  CHECK [exact] empirical join rows: actual=862599 expected=862599 (old table: 856773) -> OK
+  CHECK [exact] upsets at 0.10: actual=11114 expected=11114 (old table: 11049) -> OK
+  CHECK [exact] upsets at 0.10 classical: actual=9007 expected=9007 (old table: 8952) -> OK
+  CHECK [exact] upsets at 0.10 rapid: actual=1483 expected=1483 (old table: 1479) -> OK
+  CHECK [exact] upsets at 0.10 blitz: actual=624 expected=624 (old table: 618) -> OK
+  CHECK [exact] draw upsets at 0.10 (BUILD_NOTES_03: wins / draws 10,510 / 604): actual=604 expected=604 (old table: 603) -> OK
+  CHECK [exact] rarest200 flagged: actual=200 expected=200 (old table: 200) -> OK
+  CHECK [cross-check] upset_audit_top = the 200 smallest q_emp among the 0.10 upsets: actual=True expected=True -> OK
+  rarest200 by tc_class: {'classical': 200}  (old: all 200 classical)
+  wrote upset_points.csv: 11114 rows, 2.80 MB
+  wrote rarest_upsets.csv: 200 rows, 0.06 MB
+  wrote monthly_counts.csv: 236 rows, 0.00 MB
+  2026 games by month: {'2026-01': 18812, '2026-02': 14637, '2026-03': 21397, '2026-04': 22871, '2026-05': 28567, '2026-06': 30052, '2026-07': 31124, '2026-08': 39376, '2026-09': 21544, '2026-10': 2}
+  wrote near_equal.csv: 9 rows, 0.00 MB
+  CHECK [cross-check] near-equal n and draw rate equal kappa_table.csv (9 rows x 2 values): actual=18 expected=18 -> OK
+  near-equal classical draw rates by band: {'2200-2499': 0.4912, '2500+': 0.6293, '<2200': 0.3265}  (old: 0.327 / 0.491 / 0.630)
+  wrote yearly_counts.csv: 22 rows, 0.00 MB
+  CHECK [exact] yearly total: actual=863971 expected=863971 (old table: 858123) -> OK
+clean games: 1129532
+  CHECK [exact] clean rows: actual=1129532 expected=1129532 (old table: 1117314) -> OK
+  CHECK [cross-check] clean game_url unique: actual=True expected=True -> OK
+  CHECK [exact] glitchy clock estimates (02 cleaning log: 12,828 + 962): actual=13790 expected=13790 (old table: 13764) -> OK
+  CHECK [exact] repaired from round/tournament (02 cleaning log): actual=12828 expected=12828 (old table: 12802) -> OK
+  CHECK [exact] unresolved -> unknown (02 cleaning log): actual=962 expected=962 (old table: 962) -> OK
+  CHECK [exact] clean games that are in the analysis set: actual=863971 expected=863971 (old table: 858123) -> OK
+  CHECK [cross-check] replayed repair gives the stored analysis tc_class for every analysis game: actual=863971 expected=863971 -> OK
+  CHECK [cross-check] excluded games = clean minus analysis: actual=265561 expected=265561 -> OK
+  CHECK [cross-check] excluded game_urls are exactly the clean games not in the analysis set: actual=True expected=True -> OK
+  wrote drop_steps.csv: 4 rows, 0.00 MB
+  CHECK [exact] remaining after step 1 (02 cleaning log): actual=1129505 expected=1129505 (old table: 1117287) -> OK
+  CHECK [exact] remaining after step 2 (02 cleaning log): actual=891337 expected=891337 (old table: 885313) -> OK
+  CHECK [exact] remaining after step 3 (02 cleaning log): actual=867399 expected=867399 (old table: 861534) -> OK
+  CHECK [exact] remaining after step 4 (02 cleaning log): actual=863971 expected=863971 (old table: 858123) -> OK
+  CHECK [cross-check] replayed filter chain gives the same remaining counts: actual=[1129505, 891337, 867399, 863971] expected=[1129505, 891337, 867399, 863971] -> OK
+  CHECK [cross-check] dropped for 'time control unknown' all have tc_class unknown (replayed repair): actual=True expected=True -> OK
+  wrote set_compare.csv: 106 rows, 0.00 MB
+  wrote missing_elo_by_year.csv: 9 rows, 0.00 MB
+  CHECK [exact] missing-Elo share of the cleaned set (02: 21.1%): actual=0.211 expected=0.211 (old table: 0.208) -> OK
+  CHECK [cross-check] verified recomputed from its definition equals the stored column: actual=863971 expected=863971 -> OK
+  CHECK [exact] verified games, all analysis games (BUILD_NOTES_03): actual=657365 expected=657365 (old table: 657325) -> OK
+  CHECK [exact] model join rows (main + interaction): actual=862599 expected=862599 (old table: 856773) -> OK
+  CHECK [cross-check] max |P(win) from main coefficients - p_win_emp| < 1e-9: actual=True expected=True -> OK
+  CHECK [cross-check] max |P(win) from interaction coefficients - p_win_emp_int| < 1e-9: actual=True expected=True -> OK
+  CHECK [exact] model_bins total games: actual=862599 expected=862599 (old table: 856773) -> OK
+  wrote model_bins.csv: 302 rows, 0.03 MB
+  CHECK [cross-check] model_bins reproduce model_fit_by_band.csv (bins, inside, n-weighted error; 18 rows): actual=18 expected=18 -> OK
+  CHECK [exact] bins with n>=100 whose main prediction is inside the Wilson interval (BUILD_NOTES_03): actual=193 expected=193 (old table: 195) -> OK
+  CHECK [exact] bins with n>=100 whose interaction prediction is inside the Wilson interval (BUILD_NOTES_03): actual=203 expected=203 (old table: 204) -> OK
+  CHECK [exact] classical 2500+ n-weighted error, main (pp): actual=-2.03 expected=-2.03 (old table: -2.03) -> OK
+  wrote model_bins_by_verified.csv: 592 rows, 0.04 MB
+  verified games with an underdog: 656518 of 862599 (76.1%)  (old: 654,685 of 856,773, 76.4%)
+  CHECK [stability] UNVERIFIED-only observed win rapid/white/2200-2499 bin 250 (within 0.01 of old): actual=0.216 expected=0.217 (old table: 0.217) -> OK
+  CHECK [stability] UNVERIFIED-only observed win blitz/white/2200-2499 bin 300 (within 0.01 of old): actual=0.201 expected=0.201 (old table: 0.201) -> OK
+  ALL games, observed win rapid/white/2200-2499 bin 250: 0.178; blitz bin 300: 0.168  (old: 0.178 / 0.168)
+  wrote data_support.csv: 18 rows, 0.00 MB
+  slices whose n>=100 bins are not one unbroken run from gap 0: 0 (old: 0)
+  wrote critical_gap_by_alpha.csv: 1044 rows, 0.04 MB
+  CHECK [cross-check] stored main critical gaps reproduced from the coefficients (72 rows): actual=72 expected=72 -> OK
+  CHECK [cross-check] stored interaction critical gaps reproduced from the coefficients (72 rows): actual=72 expected=72 -> OK
+  CHECK [exact] critical gap never increases as alpha increases: actual=0 expected=0 (old table: 0) -> OK
+  CHECK [exact] headline critical gap white classical 2200-2499 alpha 0.10: actual=280.0 expected=280 (old table: 275) -> OK
+  CHECK [exact] headline critical gap white rapid 2200-2499 alpha 0.10: actual=405.0 expected=405 (old table: 405) -> OK
+  CHECK [exact] headline critical gap white blitz 2200-2499 alpha 0.10: actual=465.0 expected=465 (old table: 465) -> OK
+  CHECK [exact] headline critical gap black classical 2200-2499 alpha 0.10: actual=185.0 expected=185 (old table: 180) -> OK
+  CHECK [exact] headline critical gap black rapid 2200-2499 alpha 0.10: actual=310.0 expected=310 (old table: 315) -> OK
+  CHECK [exact] headline critical gap black blitz 2200-2499 alpha 0.10: actual=405.0 expected=405 (old table: 405) -> OK
+  wrote critical_gap_by_elo.csv: 726 rows, 0.02 MB
+  wrote avg_elo_hist.csv: 450 rows, 0.01 MB
+  wrote expected_upsets.csv: 64 rows, 0.00 MB
+  CHECK [cross-check] expected_upsets (main) equals notebook 03's expected_upsets.csv (64 rows, max abs diff < 0.01): actual=True expected=True -> OK
+  CHECK [cross-check] main: observed upsets at 0.10 = wins below + draws below = flag count: actual=11114 expected=11114 -> OK
+  CHECK [exact] main: obs/exp underdog wins with P(win) < 0.10, band <2200: actual=1.05 expected=1.05 (old table: 1.05) -> OK
+  CHECK [exact] main: obs/exp underdog wins with P(win) < 0.10, band 2200-2499: actual=0.91 expected=0.91 (old table: 0.91) -> OK
+  CHECK [exact] main: obs/exp underdog wins with P(win) < 0.10, band 2500+: actual=0.77 expected=0.77 (old table: 0.77) -> OK
+  main: expected upsets at 0.10: 11273 vs observed 11114 (wins 10755 vs 10510, draws 519 vs 604)  (old main: 11,203 vs 11,049)
+  wrote expected_upsets_interaction.csv: 64 rows, 0.00 MB
+  CHECK [cross-check] expected_upsets (interaction) equals notebook 03's expected_upsets_interaction.csv (64 rows, max abs diff < 0.01): actual=True expected=True -> OK
+  CHECK [cross-check] interaction: observed upsets at 0.10 = wins below + draws below = flag count: actual=10776 expected=10776 -> OK
+  CHECK [exact] interaction: obs/exp underdog wins with P(win) < 0.10, band <2200: actual=1.04 expected=1.04 (old table: 1.04) -> OK
+  CHECK [exact] interaction: obs/exp underdog wins with P(win) < 0.10, band 2200-2499: actual=0.97 expected=0.97 (old table: 0.98) -> OK
+  CHECK [exact] interaction: obs/exp underdog wins with P(win) < 0.10, band 2500+: actual=0.78 expected=0.78 (old table: 0.78) -> OK
+  interaction: expected upsets at 0.10: 10786 vs observed 10776 (wins 10125 vs 10118, draws 660 vs 658)
+  CHECK [exact] main: expected upsets at 0.10 (BUILD_NOTES_03: 11,273): actual=11273 expected=11273 (old table: 11203) -> OK
+  CHECK [exact] ordering classical < rapid < blitz holds in all 18 cells (main): actual=0 expected=0 (old table: 0) -> OK
+  CHECK [exact] ordering_check.csv: cells where the ordering holds, all 4 runs (72): actual=72 expected=72 (old table: 72) -> OK
+checks: 71 run, 0 mismatches
+total size of viz_data csv: 3.11 MB

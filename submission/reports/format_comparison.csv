@@ -1,0 +1,4 @@
+format,size_MB,write_s,read_2_columns_s,types_changed,which
+Parquet,11.0,0.18,0.02,0,none
+CSV,42.6,1.03,0.079,1,game_date (datetime64[us]->string)
+SQLite,42.3,0.91,0.24,4,"game_date (datetime64[us]->string), tc_borderline (bool->int64), has_underdog (bool->int64), verified (bool->int64)"

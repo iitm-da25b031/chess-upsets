@@ -1,0 +1,16 @@
+# large data files are not committed (size, FIDE terms); the cleaned table, small result tables, folder READMEs, manifest, url lists and compliance evidence are
+data/raw/lichess/*
+data/raw/fide/*
+!data/raw/lichess/.gitkeep
+!data/raw/fide/.gitkeep
+data/interim/*
+data/clean/*.parquet
+!data/clean/analysis_games.parquet
+!data/interim/.gitkeep
+!data/interim/README.md
+!data/clean/.gitkeep
+!data/clean/README.md
+*.part
+*.tmp
+__pycache__/
+.ipynb_checkpoints/

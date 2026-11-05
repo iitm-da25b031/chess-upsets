@@ -1,7 +1,0 @@
-== Parquet: write the final table to a temporary file, read it back, compare dtypes and values
-rows 858123 -> 858123; columns whose dtype changed: none; frames equal: True
-
-== SQLite: table 'games' read back (SQLite has no bool/datetime type, so changes are expected here)
-rows in table 858,123 (final table 858,123)
-dtype differences (column, parquet, sqlite): [('tc_borderline', 'bool', 'int64'), ('white_elo_final', 'Int64', 'int64'), ('black_elo_final', 'Int64', 'int64'), ('elo_mismatch_any', 'boolean', 'float64')]
-reading: Parquet keeps every dtype; SQLite stores bool as 0/1, turns missing values in nullable columns into NaN and has no date type, so the dashboard reads only the columns it needs from the Parquet and CSV files.

@@ -1,0 +1,107 @@
+set,dimension,category,n,share
+clean,year,2025,306102,0.270999
+clean,year,2026,271053,0.239969
+clean,year,2024,241392,0.21371
+clean,year,2023,139770,0.123742
+clean,year,2022,89269,0.079032
+clean,year,2021,75007,0.066405
+clean,year,2020,6656,0.005893
+clean,year,2019,256,0.000227
+clean,year,2010,27,2.4e-05
+clean,tc_class,classical,766073,0.678222
+clean,tc_class,rapid,197655,0.174988
+clean,tc_class,blitz,135125,0.119629
+clean,tc_class,unknown,30679,0.027161
+clean,plies,60-79,286073,0.253267
+clean,plies,80-99,240851,0.213231
+clean,plies,40-59,185998,0.164668
+clean,plies,100-119,165162,0.146222
+clean,plies,120-149,118142,0.104594
+clean,plies,20-39,62383,0.055229
+clean,plies,150-199,46590,0.041247
+clean,plies,10-19,9820,0.008694
+clean,plies,200+,8721,0.007721
+clean,plies,0-9,5792,0.005128
+clean,titled,no FIDE title,621981,0.550654
+clean,titled,at least one FIDE title,507551,0.449346
+clean,gm,no GM,955729,0.846128
+clean,gm,at least one GM,173803,0.153872
+clean,avg_elo,missing,238195,0.210879
+clean,avg_elo,2000,188580,0.166954
+clean,avg_elo,2200,188285,0.166693
+clean,avg_elo,1800,176446,0.156212
+clean,avg_elo,1600,125876,0.111441
+clean,avg_elo,2400,118579,0.104981
+clean,avg_elo,1400,48073,0.04256
+clean,avg_elo,2600,35144,0.031114
+clean,avg_elo,1200,7927,0.007018
+clean,avg_elo,1000,2427,0.002149
+analysis,year,2025,255470,0.295693
+analysis,year,2026,228382,0.26434
+analysis,year,2024,193025,0.223416
+analysis,year,2023,77908,0.090174
+analysis,year,2022,57112,0.066104
+analysis,year,2021,46315,0.053607
+analysis,year,2020,5503,0.006369
+analysis,year,2019,256,0.000296
+analysis,tc_class,classical,613735,0.710365
+analysis,tc_class,rapid,142763,0.16524
+analysis,tc_class,blitz,107473,0.124394
+analysis,plies,60-79,222342,0.257349
+analysis,plies,80-99,191126,0.221218
+analysis,plies,40-59,134837,0.156067
+analysis,plies,100-119,131295,0.151967
+analysis,plies,120-149,94066,0.108876
+analysis,plies,20-39,39141,0.045304
+analysis,plies,150-199,37826,0.043782
+analysis,plies,200+,7399,0.008564
+analysis,plies,10-19,5939,0.006874
+analysis,titled,at least one FIDE title,462504,0.535324
+analysis,titled,no FIDE title,401467,0.464676
+analysis,gm,no GM,704579,0.815512
+analysis,gm,at least one GM,159392,0.184488
+analysis,avg_elo,2000,182207,0.210895
+analysis,avg_elo,2200,182002,0.210658
+analysis,avg_elo,1800,170913,0.197823
+analysis,avg_elo,1600,121948,0.141148
+analysis,avg_elo,2400,115854,0.134095
+analysis,avg_elo,1400,46499,0.05382
+analysis,avg_elo,2600,34816,0.040298
+analysis,avg_elo,1200,7480,0.008658
+analysis,avg_elo,1000,2252,0.002607
+dropped,year,2023,61862,0.232948
+dropped,year,2025,50632,0.190661
+dropped,year,2024,48367,0.182131
+dropped,year,2026,42671,0.160682
+dropped,year,2022,32157,0.121091
+dropped,year,2021,28692,0.108043
+dropped,year,2020,1153,0.004342
+dropped,year,2010,27,0.000102
+dropped,tc_class,classical,152338,0.573646
+dropped,tc_class,rapid,54892,0.206702
+dropped,tc_class,unknown,30679,0.115525
+dropped,tc_class,blitz,27652,0.104127
+dropped,plies,60-79,63731,0.239986
+dropped,plies,40-59,51161,0.192653
+dropped,plies,80-99,49725,0.187245
+dropped,plies,100-119,33867,0.12753
+dropped,plies,120-149,24076,0.090661
+dropped,plies,20-39,23242,0.08752
+dropped,plies,150-199,8764,0.033002
+dropped,plies,0-9,5792,0.02181
+dropped,plies,10-19,3881,0.014614
+dropped,plies,200+,1322,0.004978
+dropped,titled,no FIDE title,220514,0.83037
+dropped,titled,at least one FIDE title,45047,0.16963
+dropped,gm,no GM,251150,0.945734
+dropped,gm,at least one GM,14411,0.054266
+dropped,avg_elo,missing,238195,0.89695
+dropped,avg_elo,2000,6373,0.023998
+dropped,avg_elo,2200,6283,0.023659
+dropped,avg_elo,1800,5533,0.020835
+dropped,avg_elo,1600,3928,0.014791
+dropped,avg_elo,2400,2725,0.010261
+dropped,avg_elo,1400,1574,0.005927
+dropped,avg_elo,1200,447,0.001683
+dropped,avg_elo,2600,328,0.001235
+dropped,avg_elo,1000,175,0.000659

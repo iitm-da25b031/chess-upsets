@@ -1,0 +1,9 @@
+missing,against,games,categories,chi2,dof,p_value,cramers_v,test,variable,difference (missing minus observed),p-value,auc
+elo,year,1129505.0,8.0,72919.0,7.0,< 0.001,0.25,chi-square,,,,
+elo,event (broadcast),787639.0,3177.0,523402.0,3176.0,< 0.001,0.82,chi-square,,,,
+tc,year,1129505.0,8.0,3420.0,7.0,< 0.001,0.06,chi-square,,,,
+tc,event (broadcast),787639.0,3177.0,393692.0,3176.0,< 0.001,0.71,chi-square,,,,
+,,,,,,,,permutation,game length (half-moves),-4.8926,0.001,
+,,,,,,,,permutation,draw rate,-0.0814,0.001,
+,,,,,,,,permutation,White's score,-0.0139,0.001,
+,,,,,,,,logistic AUC,"year, time control, length, draw, clock",,,0.6905105275135078

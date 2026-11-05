@@ -1,0 +1,33 @@
+step_no,stage,step,action,rows_affected,rows_left
+0,0 collection,all games parsed (notebook 01),start,1263916,1263916
+1,1 cleaning rules,1 unfinished result (*),remove,90666,1173250
+2,1 cleaning rules,2 forfeit result code,remove,29,1173221
+3,1 cleaning rules,3 invalid result string,remove,27,1173194
+4,2 fixes,result spelling normalised (e.g. ½-½ -> 1/2-1/2),fix,84,1173194
+5,1 cleaning rules,4 non-standard variant / Chess960 / start position,remove,13382,1159812
+6,1 cleaning rules,5 no moves / unplayed (incl. forfeits),remove,21465,1138347
+7,1 cleaning rules,6 engine-level Elo (2900-4000),remove,8383,1129964
+8,1 cleaning rules,7 adjudicated game,remove,1,1129963
+9,1 cleaning rules,8 engine/adjudicated event (>=50% of its games flagged),remove,116,1129847
+10,1 cleaning rules,9 duplicate game_url,remove,0,1129847
+11,1 cleaning rules,"10 duplicate (same players, round, broadcast, result, length)",remove,315,1129532
+12,2 fixes,time control parsed from the string and confirmed by the clock,check,435415,1129532
+13,2 fixes,time control string replaced by the clock estimate (they disagreed),fix,50648,1129532
+14,2 fixes,"time control estimated from the clock, snapped to a verified time control",fix,365823,1129532
+15,2 fixes,time control estimated from the clock,fix,233776,1129532
+16,2 fixes,time-control class taken from the event name,fix,3130,1129532
+17,2 fixes,time control unknown,flag,29717,1129532
+18,2 fixes,PGN rating outside 1000-2900 set to missing (player entries),fix,35178,1129532
+19,2 fixes,rating filled from the FIDE list of the month and time control (player entries),fix,4792,1129532
+20,2 fixes,"PGN rating differs from FIDE by >100 (player entries, flagged)",flag,21064,1129532
+21,3 analysis filters,start (games that pass the cleaning rules),start,1129532,1129532
+22,2 fixes,glitchy clock estimate (increment > 60 s) repaired from round/tournament consensus,fix,12828,1129532
+23,2 fixes,glitchy clock estimate that could not be repaired -> time control unknown,fix,962,1129532
+24,2 fixes,no game date: month of the file used as period,fix,136519,1129532
+25,3 analysis filters,11 drop games dated before 2019 (date artefacts),remove,27,1129505
+26,3 analysis filters,12 both Elos known,remove,238168,891337
+27,3 analysis filters,13 time control known (incl. unresolved glitchy clocks),remove,23938,867399
+28,3 analysis filters,14 at least 10 plies (shorter results are walkovers/forfeits recorded as games),remove,3428,863971
+29,4 outliers,"game length beyond the IQR fence (flagged, kept)",flag,17486,863971
+30,4 outliers,"game length with robust z > 3.5 (flagged, kept)",flag,9380,863971
+31,4 outliers,"Isolation Forest outlier (flagged, kept)",flag,8527,863971

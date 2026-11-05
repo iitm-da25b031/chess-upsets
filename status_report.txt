@@ -1,8 +1,0 @@
-Lichess raw files:      81 of 81  (0.74 GB)
-Lichess games parquet:  81   moves parquet: 81
-FIDE zips:              243 of 243   (1.88 GB)
-FIDE parquet files:     247
-
-Lichess months NOT downloaded (0): none
-Lichess months downloaded but NOT converted (0): none
-suspiciously small Lichess files: lichess_db_broadcast_2020-01.pgn.zst (0.6 MB), lichess_db_broadcast_2020-02.pgn.zst (0.8 MB), lichess_db_broadcast_2020-03.pgn.zst (0.1 MB), lichess_db_broadcast_2020-04.pgn.zst (0.0 MB), lichess_db_broadcast_2020-05.pgn.zst (0.3 MB), lichess_db_broadcast_2020-06.pgn.zst (0.2 MB), lichess_db_broadcast_2020-07.pgn.zst (0.3 MB), lichess_db_broadcast_2020-08.pgn.zst (0.2 MB), lichess_db_broadcast_2020-09.pgn.zst (0.3 MB), lichess_db_broadcast_2020-10.pgn.zst (0.5 MB), lichess_db_broadcast_2020-11.pgn.zst (0.2 MB), lichess_db_broadcast_2020-12.pgn.zst (0.8 MB), lichess_db_broadcast_2021-01.pgn.zst (0.4 MB), lichess_db_broadcast_2021-02.pgn.zst (0.2 MB), lichess_db_broadcast_2021-03.pgn.zst (0.4 MB), lichess_db_broadcast_2021-04.pgn.zst (0.4 MB)

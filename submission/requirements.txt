@@ -1,0 +1,15 @@
+# Tested on 2026-11-03 with exactly these versions (Python 3.13, the team's .venv versions) on the full data,
+# and on a 3-month sample with Python 3.10 / pandas 2.3.3 / numpy 1.x / pyarrow (VM defaults).
+pandas==3.1.0
+numpy==2.5.4
+pyarrow==26.0.0
+zstandard==0.25.0        # reads the .pgn.zst files
+requests==2.34.2         # downloads (01)
+scipy==1.18.1            # chi-square test (02)
+scikit-learn==1.9.1      # logistic regression, Isolation Forest (02)
+# to run the notebooks
+ipykernel>=6
+jupyterlab>=4            # or VS Code with the Jupyter extension
+nbclient>=0.10           # only for headless runs (jupyter nbconvert --execute)
+# used by the later notebooks 03_model / 04_report (not by 01-02)
+plotly==7.1.0

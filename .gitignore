@@ -1,9 +1,35 @@
 .venv/
-data/
 __pycache__/
 *.pyc
-sample_head.txt
-fide_head.txt
+.ipynb_checkpoints/
 .vscode/
 *.zip
 /python
+sample_head.txt
+fide_head.txt
+
+# Only the submission folder is part of the final repository
+/*
+!/.gitignore
+!/README.md
+!/submission/
+
+# Build material and older versions
+submission/_build/
+submission/BUILD_NOTES*.md
+submission/viz/BUILD_NOTES_VIZ.md
+submission/slides/
+submission/dashboard/archive/
+submission/dashboard/_chk/
+submission/reports/model_outputs_old_table/
+submission/reports/original_inputs/
+submission/dashboard_light/*
+!submission/dashboard_light/prepare_data.py
+
+# Large data: download link in submission/README.md, rebuilt by notebooks 01 to 03
+submission/data/raw/lichess/
+submission/data/raw/fide/
+submission/data/interim/*
+!submission/data/interim/README.md
+submission/data/clean/*.parquet
+!submission/data/clean/analysis_games.parquet

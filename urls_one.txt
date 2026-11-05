@@ -1,1 +1,0 @@
-https://database.lichess.org/broadcast/lichess_db_broadcast_2026-09.pgn.zst
