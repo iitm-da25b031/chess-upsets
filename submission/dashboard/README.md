@@ -27,6 +27,6 @@ Folder layout:
 
 Data refresh: `python refresh_data.py` copies the model tables from `../reports/model_outputs/` and `../viz/viz_data/`, then runs `prepare_fresh.py`. That script rebuilds `funnel.csv`, `before_after.csv`, `missing_by_year.csv`, `missing_tests.csv`, `length_bins.csv`, `tournaments.csv`, `players_by_class.csv` and `federations.csv` in `data/dashboard/` from the outputs of notebooks 01 to 03 (`CHESS_DATA_ROOT`, default `../data`). Run notebooks 01 to 03 and `python ../viz/make_viz_data.py` first.
 
-The opening tables (`opening_lines.csv`, `opening_boards.csv`) and the replay database (`upsets.sqlite`) are included ready-made. They were built with python-chess by `../dashboard_light/prepare_data.py`.
+The opening tables (`opening_lines.csv`, `opening_boards.csv`) and the replay database (`upsets.sqlite`) are included ready-made. They were built once from the clean tables with python-chess and are not rebuilt by `refresh_data.py`.
 
 Data: Lichess broadcast games, CC BY-SA 4.0 (database.lichess.org). Ratings: FIDE rating lists, used for coursework only.

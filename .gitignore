@@ -23,8 +23,7 @@ submission/dashboard/archive/
 submission/dashboard/_chk/
 submission/reports/model_outputs_old_table/
 submission/reports/original_inputs/
-submission/dashboard_light/*
-!submission/dashboard_light/prepare_data.py
+submission/dashboard_light/
 
 # Large data: download link in submission/README.md, rebuilt by notebooks 01 to 03
 submission/data/raw/lichess/
